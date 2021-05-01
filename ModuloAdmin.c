@@ -41,7 +41,5 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
         printf("Escogiste la opcion 6\n");
         break;
     }
-
-
-
+    ModuloAdmin(conM, name, pss);
 }
