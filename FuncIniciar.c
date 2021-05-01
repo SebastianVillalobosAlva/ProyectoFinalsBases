@@ -9,7 +9,7 @@
 
 void Iniciar(MYSQL *conn, char *name, char *pss){
     system("clear");
-    char sql_statement[100],sql_statement_u[100];
+    char sql_statement[100],sql_statement_u[100], enter[5];
     MYSQL_RES *resAdmin, *resUser;
     MYSQL_ROW rowAdmin, rowUser;
 
@@ -21,6 +21,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     if(rowAdmin != NULL){
         printf("Admin %s, signed in", rowAdmin[1]);
         mysql_free_result(resAdmin);
+        scanf(" %s", enter);
         ModuloAdmin(conn, name, pss);
     }
     else{

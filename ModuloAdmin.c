@@ -5,6 +5,7 @@
 #include "VerUsuarios.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
+    system("clear");
     int opcion = 0;
     printf("\nEscoge la opcion que quieres realizar (1, 2, 3, 4, 5, 6)\n");
     printf("1) Ver usuarios\n");
