@@ -5,6 +5,6 @@
 #include "IniciarSesion.c"
 
 int main(){
-   
+    IniciarSesion();
     return 0;
 }
