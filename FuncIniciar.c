@@ -11,7 +11,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     int user;
     int admin;
 
-    printf("\nIniciando sesión");
+    printf("\nIniciando sesión\n");
 
     sprintf(sql_statement_admin, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
     if(mysql_query(conn, sql_statement_admin) != 0){
