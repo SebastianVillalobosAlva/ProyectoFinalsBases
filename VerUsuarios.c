@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void VerUsuarios(MYSQL *con){
+void VerUsuarios(MYSQL **con){
     // char sql_statement[100];
     unsigned int i;
     MYSQL_RES *resUser;
