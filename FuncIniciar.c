@@ -19,7 +19,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     rowAdmin = mysql_fetch_row(resAdmin);
 
     if(rowAdmin != NULL){
-        printf("Admin %s, signed in", rowAdmin[1]);
+        printf("Admin %s, signed in\n", rowAdmin[1]);
         mysql_free_result(resAdmin);
         scanf(" %s", enter);
         ModuloAdmin(conn, name, pss);

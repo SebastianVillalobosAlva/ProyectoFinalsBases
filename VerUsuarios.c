@@ -28,5 +28,6 @@ void VerUsuarios(MYSQL *conU){
         printf("\n");
     }
     mysql_free_result(resUser);
+    printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
 }
