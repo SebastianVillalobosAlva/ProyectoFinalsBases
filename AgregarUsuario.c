@@ -8,19 +8,19 @@ void AgregarUsuario(MYSQL *conU){
     char sql_statement[150], enter[5];
 
     printf("\nPor favor llena la informacion del usuario que quiere agregar:\n");
-    printf("\n Nombre:");
+    printf("Nombre:");
     scanf(" %s", Nombreu);
-    printf("\n Apellido Paterno:");
+    printf("Apellido Paterno:");
     scanf(" %s", ApellidoPatu);
-    printf("\n Apellido Materno:");
+    printf("Apellido Materno:");
     scanf(" %s", ApellidoMatu);
-    printf("\n Puesto:");
+    printf("Puesto:");
     scanf(" %s", Puesto);
-    printf("\n Fecha de Nacimiento (2020-01-01):");
+    printf("Fecha de Nacimiento (2020-01-01):");
     scanf(" %s", FechaNacu);
-    printf("\n Emailu:");
+    printf("Emailu:");
     scanf(" %s", Emailu);
-    printf("\n Contaseña:");
+    printf("Contaseña:");
     scanf(" %s", Contrasenau);
 
     sprintf(sql_statement, "INSERT INTO PF_usuarios (Nombreu, ApellidoPatu, ApellidoMatu, puesto, FechaNacu, Emailu, Contrasenau) VALUES('%s','%s','%s','%s','%s','%s','%s')", Nombreu, ApellidoPatu, ApellidoMatu, Puesto, FechaNacu, Emailu, Contrasenau );
