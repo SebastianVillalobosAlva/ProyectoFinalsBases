@@ -14,5 +14,5 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     printf("%s\n", sql_statement_admin);
     printf("\nAdmin query:");
     mysql_query(conn, sql_statement_admin);
-    printf("%i", mysql_query(conn, sql_statement_admin));
+    printf("%i\n", mysql_query(conn, sql_statement_admin));
 }
