@@ -9,30 +9,22 @@
 void Iniciar(MYSQL *conn, char *name, char *pss){
     char sql_statement[100];
     int mysqlStatus = 0;
-    MYSQL_RES *mysqlResult = NULL;
-    MYSQL_ROW mysqlRow;
-	MYSQL_FIELD *mysqlFields;
-	my_ulonglong numRows;
-	unsigned int numFields;
+    unsigned int i = 0;
+    unsigned int num_fields;
+    MYSQL_RES *res;
+    MYSQL_ROW row;
+    MYSQL_FIELD *fields;
+
     sprintf(sql_statement,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", name, pss);
+    mysql_query(conn,sql_statement);
+    res = mysql_store_result(conn);
 
-     mysqlStatus = mysql_query(conn, sql_statement);
-
-     if (mysqlStatus){
-        exit(1);
-     }
-    else{
-    mysqlResult = mysql_store_result(conn);
+    while((row = mysql_fetch_row(res))){
+        i = 0;
+        for(i=0; i<mysql_num_fields(res); i++){
+            if(row[i] != NULL){
+                printf("%s ", row[i]);
+            }
+        }
     }
-
-    while(mysqlRow = mysql_fetch_row(mysqlResult)) // row pointer in the result set
-    {
-	    for(int ii=0; ii < numFields; ii++)
-	        {
-	            printf("%s\t", mysqlRow[ii] ? mysqlRow[ii] : "NULL");  // Not NULL then print
-	        }
-	            printf("\n");
-	}
-
-
 }
