@@ -24,12 +24,14 @@ void IniciarSesion(){
     scanf("%s", psswrd);
     
     MYSQL *con;
+    MYSQL *conRet;
     con = mysql_init(NULL);
+    conRet = mysql_real_connect(con, server, user, passwd, db, 0, NULL, 0);
 
-    if(mysql_real_connect(con, server, user, passwd, db, 0, NULL, 0) == NULL)
+    if(conRet == NULL)
     {
         printf("The authentication failed with the following message:\n");
-        printf("%s\n", mysql_error(con));
+        printf("%s\n", mysql_error(conRet));
         exit(1);
     }
     printf("The connection is open\n");

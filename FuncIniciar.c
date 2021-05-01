@@ -7,11 +7,32 @@
 //User: name=Luis pss=1234
 
 void Iniciar(MYSQL *conn, char *name, char *pss){
-    char sql_statement[2048]; //, sql_statement_user[2048];
-    printf("\nIniciando sesión\n");
+    char sql_statement[100];
+    int mysqlStatus = 0;
+    MYSQL_RES *mysqlResult = NULL;
+    MYSQL_ROW mysqlRow;
+	MYSQL_FIELD *mysqlFields;
+	my_ulonglong numRows;
+	unsigned int numFields;
+    sprintf(sql_statement,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", name, pss);
 
-    sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
-    printf("%s\n", sql_statement);
-    printf("\nAdmin query:");
-    printf("%i\n", mysql_query(conn, sql_statement));
+     mysqlStatus = mysql_query(conn, sql_statement);
+
+     if (mysqlStatus){
+        exit(1);
+     }
+    else{
+    mysqlResult = mysql_store_result(conn);
+    }
+
+    while(mysqlRow = mysql_fetch_row(mysqlResult)) // row pointer in the result set
+    {
+	    for(int ii=0; ii < numFields; ii++)
+	        {
+	            printf("%s\t", mysqlRow[ii] ? mysqlRow[ii] : "NULL");  // Not NULL then print
+	        }
+	            printf("\n");
+	}
+
+
 }
