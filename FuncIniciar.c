@@ -12,7 +12,7 @@ void Iniciar(MYSQL *conn, char name[25], char pss[30]){
     // int admin;
     printf("\nIniciando sesión\n");
 
-    sprintf(sql_statement_admin, "SELECT * FROM PF_admins WHERE Nombrea = \\%s\\ AND Contrasenaa = \\%s\\", name, pss);
+    sprintf(sql_statement_admin, "SELECT IDadmin FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
     printf("%s\n", sql_statement_admin);
     // sprintf(sql_statement_user, "SELECT * FROM PF_usuarios WHERE Nombreu = '%s' AND Contrasenau = '%s'", name, pss);
     // printf("%s\n", sql_statement_user);
