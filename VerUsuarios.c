@@ -10,8 +10,8 @@ void VerUsuarios(MYSQL *conU){
     MYSQL_ROW rowUser;
 
     // sprintf(sql_statement,"SELECT * FROM PF_usuarios");
-    printf("\nEntro a VerUsuarios");
-    mysql_query(conU,"SELECT * FROM PF_usuarios");
+    printf("\nEntro a VerUsuarios\n");
+    mysql_query(conU,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios");
     resUser = mysql_store_result(conU);
 
     while(rowUser = mysql_fetch_row(resUser)){
