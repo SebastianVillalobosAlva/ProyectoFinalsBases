@@ -34,7 +34,7 @@ void IniciarSesion(){
     }
     printf("The connection is open\n");
 
-    Iniciar(con, &nombre, &psswrd);
+    Iniciar(con, nombre, psswrd);
     mysql_close(con);
     printf("\nCon cerrado\n");
 }
