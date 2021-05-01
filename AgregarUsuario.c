@@ -25,7 +25,7 @@ void AgregarUsuario(MYSQL *conU){
 
     sprintf(sql_statement, "INSERT INTO PF_usuarios (Nombreu, ApellidoPatu, ApellidoMatu, puesto, FechaNacu, Emailu, Contrasenau) VALUES('%s','%s','%s','%s','%s','%s','%s')", Nombreu, ApellidoPatu, ApellidoMatu, Puesto, FechaNacu, Emailu, Contrasenau );
     mysql_query(conU,sql_statement);
-
+    return;
     // printf("\nSelecciona una tecla y aprieta enter\n");
     // scanf(" %s", enter);
 }
