@@ -8,18 +8,18 @@
 
 void Iniciar(MYSQL *conn, char *name, char *pss){
     char sql_statement[2048];
-    bool user;
-    bool admin = TRUE;
+    boolean user;
+    boolean admin = true;
 
     sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
     if(mysql_query(conn, sql_statement) !=0){
-        admin = FALSE;
+        admin = false;
         sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
         if(mysql_query(conn, sql_statement) !=0){
-            user = FALSE;
+            user = false;
             return;
         }
-        user = TRUE;
+        user = true;
     }
     if (admin){
         printf("Admin %s, signed in", name);
