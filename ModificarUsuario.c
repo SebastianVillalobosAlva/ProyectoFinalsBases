@@ -18,35 +18,45 @@ void ModificarUsuario(MYSQL *conU){
     printf("5) Email\n");
     printf(" Numero de registro (ID):");
     scanf("%i", &id);
-    printf("\n");
+    printf("\nDato a cambiar");
     scanf("%i", &opcion);
     switch(opcion){
         case 1:
         printf("Escogiste la opcion 1\n");
+        printf("Nombre:");
+        scanf(" %s", Nombre);
         sprintf(sql_statement, "UPDATE PF_usuarios SET Nombreu = '%s' WHERE IDusuario = '%i", Nombre, id);
         mysql_query(conU,sql_statement);
         break;
 
         case 2:
         printf("Escogiste la opcion 2\n");
+        printf("Apellido Paterno:");
+        scanf(" %s", ApellidoPat);
         sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoPatu = '%s' WHERE IDusuario = '%i" , ApellidoPat, id);
         mysql_query(conU,sql_statement);
         break;
 
         case 3:
         printf("Escogiste la opcion 3\n");
+        printf("Apellido Materno:");
+        scanf(" %s", ApellidoMat);
         sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoMatu = '%s' WHERE IDusuario = '%i" , ApellidoMat, id);
         mysql_query(conU,sql_statement);
         break;
 
         case 4:
         printf("Escogiste la opcion 4\n");
+        printf("Fecha de nacimiento:");
+        scanf(" %s", FechaNac);
         sprintf(sql_statement, "UPDATE PF_usuarios SET FechaNacu = '%s' WHERE IDusuario = '%i" , FechaNac, id);
         mysql_query(conU,sql_statement);
         break;
 
         case 5:
         printf("Escogiste la opcion 5\n");
+        printf("Email:");
+        scanf(" %s", Email);
         sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE IDusuario = '%i" , Email, id);
         mysql_query(conU,sql_statement);
         break;
