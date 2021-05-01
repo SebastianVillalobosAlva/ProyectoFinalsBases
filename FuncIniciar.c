@@ -8,8 +8,8 @@
 
 void Iniciar(MYSQL *conn, char *name, char *pss){
     char sql_statement_admin[2048], sql_statement_user[2048];
-    int user = 3;
-    int admin = 3;
+    int user;
+    int admin;
     printf("\nIniciando sesión\n");
 
     sprintf(sql_statement_admin, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
