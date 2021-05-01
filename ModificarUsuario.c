@@ -5,7 +5,7 @@
 
 void ModificarUsuario(MYSQL *conU){
     char enter[5], sql_statement[2048], Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
-    int opcion, id;
+    int opcion = 0, id = 0;
     MYSQL_RES *resPac;
     MYSQL_ROW rowPac;
 
