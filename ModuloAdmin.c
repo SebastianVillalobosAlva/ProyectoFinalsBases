@@ -17,21 +17,27 @@ void ModuloAdmin(MYSQL *con, char *name, char *pss){
     switch(opcion){
         case 1:
         printf("Escogiste la opcion 1\n");
+        break;
 
         case 2:
         printf("Escogiste la opcion 2\n");
+        break;
 
         case 3:
         printf("Escogiste la opcion 3\n");
+        break;
 
         case 4:
         printf("Escogiste la opcion 4\n");
+        break;
 
         case 5:
         printf("Escogiste la opcion 5\n");
+        break;
 
         case 6:
         printf("Escogiste la opcion 6\n");
+        break;
     }
 
 
