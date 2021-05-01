@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void Iniciar(MYSQL **conn, char **name, char **pss){
+void Iniciar(MYSQL *conn, char *name, char *pss){
     char sql_statement[2048];
 
     sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
