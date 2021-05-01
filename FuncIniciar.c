@@ -19,7 +19,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     user = mysql_query(conn, sql_statement_user);
     printf("%i", admin);
     printf("\nUser query:");
-    printf("%i", user);
+    printf("%i\n", user);
     // if(mysql_query(conn, sql_statement_admin) != 0){
     //     printf("\nNo es admin\n");
     //     sprintf(sql_statement_user, "SELECT * FROM PF_usuarios WHERE Nombreu = '%s' AND Contrasenau = '%s'", name, pss);
