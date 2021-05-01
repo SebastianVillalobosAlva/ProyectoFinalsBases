@@ -1,10 +1,10 @@
-#include <mysql/mysql.h>
+//#include <mysql/mysql.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "IniciarSesion.c"
+#include "FuncIniciarSesion.c"
 
-int main(){
+int main(void){
     IniciarSesion();
     return 0;
 }
