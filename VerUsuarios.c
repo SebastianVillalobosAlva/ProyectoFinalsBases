@@ -19,6 +19,7 @@ void VerUsuarios(MYSQL *conU){
         for(i=0; i < mysql_num_fields(resUser); i++){
             if(rowUser[i] != NULL){
                 printf("%s", rowUser[i]);
+                printf(" ");
             }
             else{
                 printf(" \n");
