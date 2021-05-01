@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "ModuloAdmin.c"
 
-void VerUsuarios(MYSQL *conU){
+void VerUsuarios(MYSQL *conU, char *name, char *pss){
     // char sql_statement[100];
     unsigned int i;
     MYSQL_RES *resUser;
@@ -28,4 +29,5 @@ void VerUsuarios(MYSQL *conU){
         printf("\n");
     }
     mysql_free_result(resUser);
+    ModuloAdmin(connU, name, pss);
 }
