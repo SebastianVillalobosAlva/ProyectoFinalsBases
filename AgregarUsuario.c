@@ -5,7 +5,7 @@
 
 void AgregarUsuario(MYSQL *conU){
     char Nombreu[40], ApellidoPatu[40], ApellidoMatu[40], Puesto[40], FechaNacu[40], Emailu[40], Contrasenau[40];
-    char sql_statement[150], enter[10];
+    char sql_statement[2048], enter[10];
 
     printf("\nPor favor llena la informacion del usuario que quiere agregar:\n");
     printf("Nombre:");
