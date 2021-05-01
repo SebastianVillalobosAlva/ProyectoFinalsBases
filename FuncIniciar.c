@@ -6,7 +6,7 @@
 //Admin: name=Sebastian pss=1q2w3e4r5t
 //User: name=Luis pss=1234
 
-void Iniciar(MYSQL *conn, char *name, char *pss){
+void Iniciar(MYSQL *conn, char name[25], char pss[30]){
     char sql_statement_admin[2048]; //, sql_statement_user[2048];
     // int user;
     int admin;
