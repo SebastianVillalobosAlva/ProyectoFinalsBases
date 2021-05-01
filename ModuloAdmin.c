@@ -49,6 +49,9 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
         case 6:
         printf("Escogiste la opcion 6\n");
         break;
+
+        case 7:
+        return;
     }
     ModuloAdmin(conM, name, pss);
 }
