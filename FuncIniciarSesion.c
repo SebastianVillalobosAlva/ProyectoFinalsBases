@@ -2,13 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "FuncIniciar.c"
 
 void IniciarSesion(){
     // Variables de MySQL
-    // MYSQL mysql;
-    // MYSQL_RES *res;
-    // MYSQL_ROW row;
-    // MYSQL_FIELD *fields;
     char *server = "localhost";
     char *user = "mp15lsm";
     char *passwd = "195573";
@@ -23,7 +20,7 @@ void IniciarSesion(){
     printf("\n Usuario:");
     scanf("%s", nombre);
 
-    printf("Contraseña:");
+    printf(" Contraseña:");
     scanf("%s", psswrd);
     
     MYSQL *con;
@@ -35,8 +32,9 @@ void IniciarSesion(){
         printf("%s\n", mysql_error(con));
         exit(1);
     }
-
     printf("The connection is open\n");
+    
+    Iniciar(&con, &nombre, &psswrd);
 
     mysql_close(con);
 }
