@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "VerUsuarios.c"
 
 void ModuloAdmin(MYSQL *con, char *name, char *pss){
     int opcion = 0;
@@ -17,6 +18,7 @@ void ModuloAdmin(MYSQL *con, char *name, char *pss){
     switch(opcion){
         case 1:
         printf("Escogiste la opcion 1\n");
+        VerUsuarios(con);
         break;
 
         case 2:
