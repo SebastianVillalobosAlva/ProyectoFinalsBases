@@ -21,10 +21,10 @@ void VerUsuarios(MYSQL *conU){
                 printf("%s", rowUser[i]);
             }
             else{
-                printf("\n");
+                printf(" \n");
             } 
         }
-        fputc("\n", stdout);
+        // fputc("\n", stdout);
     }
     mysql_free_result(resUser);
 }
