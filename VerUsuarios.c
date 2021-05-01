@@ -24,7 +24,7 @@ void VerUsuarios(MYSQL *conU){
                 printf(" \n");
             } 
         }
-        // fputc("\n", stdout);
+        printf("\n");
     }
     mysql_free_result(resUser);
 }
