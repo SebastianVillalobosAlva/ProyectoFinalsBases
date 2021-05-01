@@ -25,6 +25,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
         mysql_query(conn,sql_statement_u);
         resUser = mysql_store_result(conn);
         rowUser = mysql_fetch_row(resUser);
+        
          if(rowUser != NULL){
         printf("User %s, signed in", rowUser[1]);
         mysql_free_result(resUser);
