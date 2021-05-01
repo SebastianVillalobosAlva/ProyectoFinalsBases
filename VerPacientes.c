@@ -28,5 +28,6 @@ void VerPacientes(MYSQL *conU){
         printf("\n");
     }
     mysql_free_result(resPac);
+    printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
 }
