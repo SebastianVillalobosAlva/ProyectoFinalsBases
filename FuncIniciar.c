@@ -14,7 +14,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
     if(mysql_query(conn, sql_statement) !=0){
         admin = 0;
-        sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s'", name, pss);
+        sprintf(sql_statement, "SELECT * FROM PF_usuarios WHERE Nombreu = '%s' AND Contrasenau = '%s'", name, pss);
         if(mysql_query(conn, sql_statement) !=0){
             user = 0;
             return;
