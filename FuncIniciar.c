@@ -8,6 +8,7 @@
 //User: name=Luis pss=1234
 
 void Iniciar(MYSQL *conn, char *name, char *pss){
+    system("clear");
     char sql_statement[100],sql_statement_u[100];
     MYSQL_RES *resAdmin, *resUser;
     MYSQL_ROW rowAdmin, rowUser;
