@@ -18,10 +18,10 @@ void IniciarSesion(){
     printf("\nInicia Sesion");
 
     printf("\n Usuario:");
-    scanf(" %s", nombre);
+    scanf("%s", nombre);
 
     printf(" Contraseña:");
-    scanf(" %s", psswrd);
+    scanf("%s", psswrd);
     
     MYSQL *con;
     con = mysql_init(NULL);
@@ -34,7 +34,7 @@ void IniciarSesion(){
     }
     printf("The connection is open\n");
 
-    Iniciar(con, nombre, psswrd);
+    Iniciar(con, &nombre, &psswrd);
     mysql_close(con);
     printf("\nCon cerrado\n");
 }
