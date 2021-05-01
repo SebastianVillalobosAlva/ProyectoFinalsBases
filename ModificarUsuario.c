@@ -5,7 +5,7 @@
 
 void ModificarUsuario(MYSQL *conU){
     char enter[5], sql_statement[2048], Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
-    int opcion = 0, id = 0;
+    int opcion, id;
     MYSQL_RES *resPac;
     MYSQL_ROW rowPac;
 
@@ -17,9 +17,9 @@ void ModificarUsuario(MYSQL *conU){
     printf("4) Fecha Nacimiento\n");
     printf("5) Email\n");
     printf(" Numero de registro (ID):");
-    scanf("%i", id);
+    scanf("%i", &id);
     printf("\n");
-    scanf("%i", opcion);
+    scanf("%i", &opcion);
     switch(opcion){
         case 1:
         printf("Escogiste la opcion 1\n");
