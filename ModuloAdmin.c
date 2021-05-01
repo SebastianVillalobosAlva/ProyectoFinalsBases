@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "VerUsuarios.c"
 #include "VerPacientes.c"
+#include "AgregarUsuario.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     system("clear");
@@ -30,6 +31,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
 
         case 3:
         printf("Escogiste la opcion 3\n");
+        AgregarUsuario(conM);
         break;
 
         case 4:
