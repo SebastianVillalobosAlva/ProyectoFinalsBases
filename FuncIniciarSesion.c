@@ -35,6 +35,5 @@ void IniciarSesion(){
     printf("The connection is open\n");
     
     Iniciar(con, nombre, psswrd);
-
     mysql_close(con);
 }
