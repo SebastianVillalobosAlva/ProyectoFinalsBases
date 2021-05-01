@@ -36,5 +36,5 @@ void IniciarSesion(){
 
     Iniciar(con, nombre, psswrd);
     mysql_close(con);
-    print("\nCon cerrado\n");
+    printf("\nCon cerrado\n");
 }
