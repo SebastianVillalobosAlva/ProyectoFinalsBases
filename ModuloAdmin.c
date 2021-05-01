@@ -18,7 +18,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     switch(opcion){
         case 1:
         printf("Escogiste la opcion 1\n");
-        VerUsuarios(conM, name, pss);
+        VerUsuarios(conM);
         break;
 
         case 2:
