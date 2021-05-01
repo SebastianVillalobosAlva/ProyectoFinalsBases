@@ -20,6 +20,9 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     res = mysql_store_result(conn);
 
     while((row = mysql_fetch_row(res))){
+        if(row != NULL){
+            printf("Hay datos");
+        }
         i = 0;
         for(i=0; i<mysql_num_fields(res); i++){
             if(row[i] != NULL){
