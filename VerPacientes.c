@@ -10,8 +10,8 @@ void VerPacientes(MYSQL *conU){
     MYSQL_ROW rowPac;
 
     // sprintf(sql_statement,"SELECT * FROM PF_usuarios");
-    printf("\nEntro a VerUsuarios\n");
-    mysql_query(conU,"SELECT Nombrep, ApellidoPatp, ApellidoMatp FROM PF_pacientes");
+    printf("\nEntro a VerPacientes\n");
+    mysql_query(conU,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_pacientes");
     resPac = mysql_store_result(conU);
 
     while(rowPac = mysql_fetch_row(resPac)){
