@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void VerUsuarios(MYSQL **con){
+void VerUsuarios(MYSQL *conU){
     // char sql_statement[100];
     unsigned int i;
     MYSQL_RES *resUser;
@@ -11,9 +11,8 @@ void VerUsuarios(MYSQL **con){
 
     // sprintf(sql_statement,"SELECT * FROM PF_usuarios");
     printf("\nEntro a VerUsuarios");
-    mysql_query(con,"SELECT * FROM PF_usuarios");
-    resUser = mysql_store_result(con);
-    rowUser = mysql_fetch_row(resUser);
+    mysql_query(conU,"SELECT * FROM PF_usuarios");
+    resUser = mysql_store_result(conU);
 
     while(rowUser = mysql_fetch_row(resUser)){
         i = 0;
@@ -24,7 +23,7 @@ void VerUsuarios(MYSQL **con){
             else{
                 printf("\n");
             }
-            // fputc("\n", stdout);
+             fputc("\n", stdout);
         }
         mysql_free_result(resUser);
     }
