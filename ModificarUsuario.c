@@ -16,9 +16,9 @@ void ModificarUsuario(MYSQL *conU){
     printf("3) Apellido Materno\n");
     printf("4) Fecha Nacimiento\n");
     printf("5) Email\n");
-    printf(" Numero de registro (ID):");
+    printf(" Numero de registro (ID): ");
     scanf("%i", &id);
-    printf("\nDato a cambiar");
+    printf("Dato a cambiar: ");
     scanf("%i", &opcion);
     switch(opcion){
         case 1:
