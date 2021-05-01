@@ -6,6 +6,7 @@
 #include "VerPacientes.c"
 #include "AgregarUsuario.c"
 #include "BuscarUsuario.c"
+#include "ModificarUsuario.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     system("clear");
@@ -42,6 +43,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
 
         case 5:
         printf("Escogiste la opcion 5\n");
+        ModificarUsuario(conM);
         break;
 
         case 6:
