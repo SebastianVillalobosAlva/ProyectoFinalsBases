@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 void VerUsuarios(MYSQL *conU){
-    char Continue;
     unsigned int i;
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
@@ -28,5 +27,5 @@ void VerUsuarios(MYSQL *conU){
         printf("\n");
     }
     mysql_free_result(resUser);
-    Continue = getchar();
+    getch();
 }
