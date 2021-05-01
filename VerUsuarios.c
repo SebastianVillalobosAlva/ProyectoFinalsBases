@@ -4,13 +4,14 @@
 #include <stdlib.h>
 
 void VerUsuarios(MYSQL *con){
-    char sql_statement[100];
+    // char sql_statement[100];
     unsigned int i;
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
 
-    sprintf(sql_statement,"SELECT * FROM PF_usuarios");
-    mysql_query(con,sql_statement);
+    // sprintf(sql_statement,"SELECT * FROM PF_usuarios");
+    printf("\nEntro a VerUsuarios");
+    mysql_query(con,"SELECT * FROM PF_usuarios");
     resUser = mysql_store_result(con);
     rowUser = mysql_fetch_row(resUser);
 
