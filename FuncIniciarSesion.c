@@ -23,7 +23,7 @@ void IniciarSesion(){
     printf("\n Usuario:");
     scanf("%s", nombre);
 
-    printf("\nContraseña:");
+    printf("Contraseña:");
     scanf("%s", psswrd);
     
     MYSQL *con;
