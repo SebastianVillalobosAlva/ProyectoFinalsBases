@@ -7,12 +7,12 @@
 //User: name=Luis pss=1234
 
 void Iniciar(MYSQL *conn, char *name, char *pss){
-    char sql_statement_admin[2048]; //, sql_statement_user[2048];
+    char sql_statement[2048]; //, sql_statement_user[2048];
     printf("\nIniciando sesión\n");
 
-    sprintf(sql_statement_admin, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s';", name, pss);
-    printf("%s\n", sql_statement_admin);
+    sprintf(sql_statement, "SELECT * FROM PF_admins WHERE Nombrea = '%s' AND Contrasenaa = '%s';", name, pss);
+    printf("%s\n", sql_statement);
     printf("\nAdmin query:");
-    mysql_query(conn, sql_statement_admin);
-    printf("%i\n", mysql_query(conn, sql_statement_admin));
+    mysql_query(conn, sql_statement);
+    printf("%i\n", mysql_query(conn, sql_statement));
 }
