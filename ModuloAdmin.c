@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "VerUsuarios.c"
+#include "VerPacientes.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     system("clear");
@@ -24,6 +25,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
 
         case 2:
         printf("Escogiste la opcion 2\n");
+        VerPacientes(conM);
         break;
 
         case 3:
