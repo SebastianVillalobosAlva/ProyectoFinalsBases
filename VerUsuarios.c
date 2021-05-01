@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void VerUsuarios(MYSQL *conU){
-    char *enter;
+    char enter[5];
     unsigned int i;
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
