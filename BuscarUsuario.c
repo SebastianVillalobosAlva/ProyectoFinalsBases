@@ -20,6 +20,8 @@ void BuscarUsuario(MYSQL *conU){
 
     switch(opcion){
         case 1:
+        printf("\nNombre: ");
+        scanf("%s", Nombre);
         sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s'", Nombre);
         mysql_query(conU,sql_statement);
         resUser = mysql_store_result(conU);
@@ -40,6 +42,8 @@ void BuscarUsuario(MYSQL *conU){
         break;
 
         case 2:
+        printf("\nApellido Paterno: ");
+        scanf("%s", ApellidoPat);
         sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE ApellidoPatu = '%s'", ApellidoPat);
         mysql_query(conU,sql_statement);
         resUser = mysql_store_result(conU);
@@ -60,6 +64,10 @@ void BuscarUsuario(MYSQL *conU){
         break;
 
         case 3:
+        printf("\nNombre: ");
+        scanf("%s", Nombre);
+        printf("\nApellido Paterno: ");
+        scanf("%s", ApellidoPat);
         sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s' AND ApellidoPatu='%s'", Nombre, ApellidoPat);
         mysql_query(conU,sql_statement);
         resUser = mysql_store_result(conU);
