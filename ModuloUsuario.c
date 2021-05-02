@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "AgregarPaciente.c"
+#include "ModificarPropioUsuario.c"
 
 void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     system("clear");
@@ -39,10 +40,11 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
 
         case 5:
         printf("Escogiste la opcion 5\n");
-        
+        ModificarPropioUsuario(conU, name, pss);
         break;
 
         case 6:
         return;
     }
+    ModuloUsuario(conU, name, pss);
 }

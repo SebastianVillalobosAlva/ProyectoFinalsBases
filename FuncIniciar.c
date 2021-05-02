@@ -32,7 +32,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
         rowUser = mysql_fetch_row(resUser);
         
          if(rowUser != NULL){
-        printf("User %s, signed in", rowUser[1]);
+        printf("User %s, signed in\n", rowUser[1]);
         mysql_free_result(resUser);
         scanf(" %s", enter);
         ModuloUsuario(conn, name, pss);
