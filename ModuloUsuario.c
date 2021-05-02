@@ -11,9 +11,9 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     int opcion = 0;
     printf("\nEscoge la opcion que quieres realizar\n");
     printf("1) Registrar paciente\n");
-    printf("2) Historial clinico\n");
-    printf("3) Checar consultas\n");
-    printf("4) Checar diagnostico\n");
+    printf("2) Historial clinico\n"); //PF_meds //Todo se saca de consultas
+    printf("3) Checar consultas\n"); //PF_consultas
+    printf("4) Checar diagnostico\n"); //PF_diags
     printf("5) Modificar su usuario\n");
     printf("6) Ver mi usuario\n");
     printf("7) Salir del programa\n");
