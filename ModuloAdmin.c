@@ -19,7 +19,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     printf("4) Buscar por usuario\n");
     printf("5) Modificar usuario\n");
     printf("6) Modificar paciente\n");
-    printf("7) Salir del programa");
+    printf("7) Salir del programa\n");
     scanf("%i", &opcion);
 
     switch(opcion){
