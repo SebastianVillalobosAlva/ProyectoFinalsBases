@@ -5,6 +5,7 @@
 #include "FuncIniciarSesion.c"
 
 int main(void){
+    system("clear");
     IniciarSesion();
     return 0;
 }
