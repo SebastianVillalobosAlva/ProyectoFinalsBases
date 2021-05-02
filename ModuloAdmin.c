@@ -7,17 +7,19 @@
 #include "AgregarUsuario.c"
 #include "BuscarUsuario.c"
 #include "ModificarUsuario.c"
+#include "ModificarPaciente.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     system("clear");
     int opcion = 0;
-    printf("\nEscoge la opcion que quieres realizar (1, 2, 3, 4, 5, 6)\n");
+    printf("\nEscoge la opcion que quieres realizar\n");
     printf("1) Ver usuarios\n");
     printf("2) Ver pacientes\n");
     printf("3) Agregar usuarios\n");
     printf("4) Buscar por usuario\n");
     printf("5) Modificar usuario\n");
     printf("6) Modificar paciente\n");
+    printf("7) Salir del programa");
     scanf("%i", &opcion);
 
     switch(opcion){
@@ -48,6 +50,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
 
         case 6:
         printf("Escogiste la opcion 6\n");
+        ModificarPaciente(conM);
         break;
 
         case 7:
