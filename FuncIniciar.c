@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "ModuloAdmin.c"
+#include "ModuloUsuario.c"
 
 //Admin: name=Sebastian pss=1q2w3e4r5t
 //User: name=Luis pss=1234
@@ -33,6 +34,8 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
          if(rowUser != NULL){
         printf("User %s, signed in", rowUser[1]);
         mysql_free_result(resUser);
+        scanf(" %s", enter);
+        ModuloUsuario(conn, name, pss);
         }
     }
 
