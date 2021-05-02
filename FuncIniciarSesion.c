@@ -15,7 +15,7 @@ void IniciarSesion(){
     char nombre[25];
     char psswrd[30];
 
-    printf("\nInicia Sesion");
+    printf("Inicia Sesion");
 
     printf("\n Usuario:");
     scanf("%s", nombre);
