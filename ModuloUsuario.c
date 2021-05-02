@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "AgregarPaciente.c"
 #include "ModificarPropioUsuario.c"
+#include "VerMiUsuario.c"
 
 void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     system("clear");
@@ -14,7 +15,8 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     printf("3) Checar consultas\n");
     printf("4) Checar diagnostico\n");
     printf("5) Modificar su usuario\n");
-    printf("6) Salir del programa\n");
+    printf("6) Ver mi usuario\n");
+    printf("7) Salir del programa\n");
     scanf("%i", &opcion);
 
     switch(opcion){
@@ -44,6 +46,11 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
         break;
 
         case 6:
+        printf("Escogiste la opcion 6\n");
+        VerMiUsuario(conU, name, pss);
+        break;
+
+        case 7:
         return;
     }
     ModuloUsuario(conU, name, pss);
