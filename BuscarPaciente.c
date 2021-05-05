@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void BuscarPaciente(MYSQL *conU){
-    char enter[5], sql_statement[2048], FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
+    char enter[5], sql_statement[4056], FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
     unsigned int i;
     int opcion = 0;
     MYSQL_RES *resPac;
@@ -91,7 +91,7 @@ void BuscarPaciente(MYSQL *conU){
         scanf("%s", FechaConI);
         printf(" Fecha final de consulta: ");
         scanf("%s", FechaConF);
-        sprintf(sql_statement,"SELECT pac.Nombre, pac.ApellidoPat, pac.ApellidoMat, FROM PF_consultas LEFT JOIN PF_pacientes pac USING (IDpaciente) WHERE fechacons BETWEEN '%s' AND '%s';", FechaConI, FechaConF);
+        sprintf(sql_statement,"SELECT pac.Nombre, pac.ApellidoPat, pac.ApellidoMat, FROM PF_consultas LEFT JOIN PF_pacientes pac USING (IDpaciente) WHERE fechacons BETWEEN '%s' AND '%s'", FechaConI, FechaConF);
         mysql_query(conU,sql_statement);
         resPac = mysql_store_result(conU);
 
