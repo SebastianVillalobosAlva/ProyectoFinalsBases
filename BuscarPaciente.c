@@ -91,7 +91,7 @@ void BuscarPaciente(MYSQL *conU){
         scanf("%s", FechaConI);
         printf(" Fecha final de consulta: ");
         scanf("%s", FechaConF);
-        sprintf(sql_statement,"SELECT * FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE fechacons BETWEEN '%s' AND '%s'", FechaConI, FechaConF);
+        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat, fechacons FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE fechacons BETWEEN '%s' AND '%s'", FechaConI, FechaConF);
         mysql_query(conU,sql_statement);
         resPac = mysql_store_result(conU);
 
