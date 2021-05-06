@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void ChecarDiagnostico(MYSQL *conU){
-    char enter[5], sql_statement[2048];
+    char enter[5], sql_statement[4056];
     int opcion = 0;
     unsigned int i;
     MYSQL_RES *resUser, *resUser2;
