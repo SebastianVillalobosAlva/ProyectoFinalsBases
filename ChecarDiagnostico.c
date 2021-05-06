@@ -7,7 +7,6 @@ void ChecarDiagnostico(MYSQL *conU){
     char enter[5], sql_statement[2048];
     int opcion = 0;
     unsigned int i;
-    int opcion = 0;
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
 
