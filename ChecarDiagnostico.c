@@ -34,7 +34,7 @@ void ChecarDiagnostico(MYSQL *conU){
     printf(" ID diagnostico: ");
     scanf("%i", &opcion);
 
-    sprintf(sql_statement, "SELECT  Nombreu, ApellidoPatu, ApellidoMatu FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE IDdiagnostico = '%i", opcion);
+    sprintf(sql_statement, "SELECT  Nombreu, ApellidoPatu, ApellidoMatu FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE IDdiagnostico = '%i'", opcion);
 
     mysql_query(conU,sql_statement);
     resUser2 = mysql_store_result(conU);
