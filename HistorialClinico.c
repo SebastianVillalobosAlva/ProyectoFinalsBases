@@ -20,19 +20,19 @@ void HistorialClinico(MYSQL *conU){
     sprintf(sql_statement, "SELECT * FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE Nombre = '%s' AND ApellidoPat = '%s'", Nombre, ApellidoPat);
 
     mysql_query(conU,sql_statement);
-        resUser = mysql_store_result(conU);
+    resUser = mysql_store_result(conU);
 
-        while(rowUser = mysql_fetch_row(resUser)){
-            i = 0;
-            for(i=0; i < mysql_num_fields(resUser); i++){
-                if(rowUser[i] != NULL){
-                    printf("%s", rowUser[i]);
-                    printf(" ");
-                }
-                else{
-                    printf(" \n");
-                } 
+    while(rowUser = mysql_fetch_row(resUser)){
+        i = 0;
+        for(i=0; i < mysql_num_fields(resUser); i++){
+            if(rowUser[i] != NULL){
+                printf("%s", rowUser[i]);
+                printf(" ");
             }
-            printf("\n");
+            else{
+                printf(" \n");
+            } 
         }
+        printf("\n");
+    }
 }
