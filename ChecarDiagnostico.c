@@ -33,7 +33,7 @@ void ChecarDiagnostico(MYSQL *conU){
 
     printf("Por favor ingresa el numero diagnostico que quieres buscar\n");
     printf(" ID diagnostico: ");
-    scanf("%s", &opcion);
+    scanf("%i", &opcion);
 
     sprintf(sql_statement, "SELECT * FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE IDdiagnostico = '%i", opcion);
 
