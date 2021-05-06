@@ -7,8 +7,8 @@ void ChecarDiagnostico(MYSQL *conU){
     char enter[5], sql_statement[2048];
     int opcion = 0;
     unsigned int i;
-    MYSQL_RES *resUser;
-    MYSQL_ROW rowUser;
+    MYSQL_RES *resUser, *resUser2;
+    MYSQL_ROW rowUser, *rowUser2;
 
     printf("\nEntro a ChecarDiagnostico\n");
 
@@ -37,13 +37,13 @@ void ChecarDiagnostico(MYSQL *conU){
     sprintf(sql_statement, "SELECT * FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE IDdiagnostico = '%i", opcion);
 
     mysql_query(conU,sql_statement);
-    resUser = mysql_store_result(conU);
+    resUser2 = mysql_store_result(conU);
 
-    while(rowUser = mysql_fetch_row(resUser)){
+    while(rowUser2 = mysql_fetch_row(resUser2)){
         i = 0;
-        for(i=0; i < mysql_num_fields(resUser); i++){
-            if(rowUser[i] != NULL){
-                printf("%s", rowUser[i]);
+        for(i=0; i < mysql_num_fields(resUser2); i++){
+            if(rowUser2[i] != NULL){
+                printf("%s", rowUser2[i]);
                 printf(" ");
             }
             else{
@@ -53,7 +53,7 @@ void ChecarDiagnostico(MYSQL *conU){
         printf("\n");
     }
 
-    mysql_free_result(resUser);
+    mysql_free_result(resUser2);
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
 }
