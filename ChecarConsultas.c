@@ -11,7 +11,7 @@ void ChecarConsultas(MYSQL *conU){
     MYSQL_ROW rowUser;
     
     printf("\nEntro a ChecarConsultas\n");
-    printf("Por favor ingresa el nombre y apellido paterno del paciente\n");
+    printf("Por favor ingresa el nombre y apellido paterno del usuario\n");
     printf(" Nombre: ");
     scanf("%s", Nombre);
     printf(" Apellido Paterno: ");

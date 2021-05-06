@@ -8,6 +8,7 @@
 #include "BuscarPaciente.c"
 #include "HistorialClinico.c"
 #include "ChecarConsultas.c"
+#include "ChecarDiagnostico.c"
 
 void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     system("clear");
@@ -41,7 +42,7 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
 
         case 4:
         printf("Escogiste la opcion 4\n");
-        
+        ChecarDiagnostico(conU);
         break;
 
         case 5:
