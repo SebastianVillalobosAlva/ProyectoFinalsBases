@@ -7,15 +7,16 @@
 #include "VerMiUsuario.c"
 #include "BuscarPaciente.c"
 #include "HistorialClinico.c"
+#include "ChecarConsultas.c"
 
 void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     system("clear");
     int opcion = 0;
     printf("\nEscoge la opcion que quieres realizar\n");
     printf("1) Registrar paciente\n");
-    printf("2) Historial clinico\n"); //PF_meds //Todo se saca de consultas
-    printf("3) Checar consultas\n"); //PF_consultas
-    printf("4) Checar diagnostico\n"); //PF_diags
+    printf("2) Historial clinico de paciente\n"); //PF_meds //Todo se saca de consultas
+    printf("3) Checar consultas por usuario\n"); //PF_consultas
+    printf("4) Checar consultas por diagnostico\n"); //PF_diags
     printf("5) Modificar su usuario\n");
     printf("6) Ver mi usuario\n");
     printf("7) Buscar paciente\n");
@@ -35,7 +36,7 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
 
         case 3:
         printf("Escogiste la opcion 3\n");
-        
+        ChecarConsultas(conU);
         break;
 
         case 4:
