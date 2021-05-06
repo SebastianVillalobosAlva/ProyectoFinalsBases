@@ -8,7 +8,7 @@ void ChecarDiagnostico(MYSQL *conU){
     int opcion = 0;
     unsigned int i;
     MYSQL_RES *resUser, *resUser2;
-    MYSQL_ROW rowUser, *rowUser2;
+    MYSQL_ROW rowUser, rowUser2;
 
     printf("\nEntro a ChecarDiagnostico\n");
 
