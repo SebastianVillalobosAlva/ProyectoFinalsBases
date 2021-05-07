@@ -1,10 +1,24 @@
+/***************************************************************
+*  ModuloAdmin - Despliega los diferente procesos que el user  *
+*                puede llevar a cabo                           *
+*                                                              *
+*  Parámetros:                                                 *
+*    MYSQL *conn - Conector de MYSQL                           *
+*    char *name - Nombre del usuario                           *
+*    char *pss - Contraseña del usuario                        *
+*                                                              *
+*  Valor de retorno:                                           * 
+*    No hay valor de retorno                                   *
+*                                                              *
+***************************************************************/ 
+
 #include <mysql/mysql.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-void BuscarPaciente(MYSQL *conU){
-    char enter[5], sql_statement[4056], FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
+void BuscarPaciente(MYSQL *conU, char *name){
+    char enter[5], sql_statement[4056], sql_statement_2[4056], FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
     unsigned int i;
     int opcion = 0;
     MYSQL_RES *resPac;
@@ -111,6 +125,10 @@ void BuscarPaciente(MYSQL *conU){
         break;
     }
     mysql_free_result(resPac);
+
+    sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement, name);
+    mysql_query(conU,sql_statement_2);
+
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
 }

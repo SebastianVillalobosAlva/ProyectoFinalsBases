@@ -65,7 +65,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
         case 4:
         printf("Escogiste la opcion 4\n");
         /* Llamamos a la funcion BuscarUsuario */
-        BuscarUsuario(conM);
+        BuscarUsuario(conM, name);
         break;
 
         case 5:

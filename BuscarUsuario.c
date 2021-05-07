@@ -17,9 +17,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-void BuscarUsuario(MYSQL *conU){
+void BuscarUsuario(MYSQL *conU, char *name){
     /* Declaramos la variables para buscar al usuario y donde vamos a guardar el query */
-    char enter[5], sql_statement[2048], Nombre[40], ApellidoPat[40];
+    char enter[5], sql_statement[2048], sql_statement_2[2046], Nombre[40], ApellidoPat[40];
 
     /* Declaramos la variable del contador y opcion */
     unsigned int i;
@@ -123,6 +123,9 @@ void BuscarUsuario(MYSQL *conU){
     }
     /* Liberamos el resultado */
     mysql_free_result(resUser);
+
+    sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement, name);
+    mysql_query(conU,sql_statement_2);
 
     /* Necesitamos apretar una tecla para continuar */
     printf("\nSelecciona una tecla y aprieta enter\n");

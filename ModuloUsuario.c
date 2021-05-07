@@ -84,7 +84,7 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
         case 7:
         printf("Escogiste la opcion 7\n");
         /* Llamamos a la funcion BuscarPaciente */
-        BuscarPaciente(conU);
+        BuscarPaciente(conU, name);
         break;
 
         /* Rompemos el switch y regresamos a la funcion anterior */
