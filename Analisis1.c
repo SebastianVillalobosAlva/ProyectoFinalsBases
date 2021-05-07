@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void Analisis(MYSQL *conU){
+void AnalisisAdmin(MYSQL *conU){
     unsigned int i;
     int opcion;
     char enter[5], Nombre[40], ApellidoPat[40], ApellidoMat[40], sql_statement[2048];

@@ -83,7 +83,7 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
         break;
 
         case 7:
-        Analisis(conM);
+        AnalisisAdmin(conM);
         break;
         /* Rompemos el switch y regresamos a la funcion anterior */
         case 8:
