@@ -19,7 +19,8 @@
 
 void BuscarUsuario(MYSQL *conU, char *name){
     /* Declaramos la variables para buscar al usuario y donde vamos a guardar el query */
-    char enter[5], sql_statement[2048], sql_statement_2[2048], sql_statement_3[5000], Nombre[40], ApellidoPat[40];
+    char enter[5], sql_statement[2048], sql_statement_2[2048], sql_statement_3[5000];
+    char Nombre[40], ApellidoPat[40];
 
     /* Declaramos la variable del contador y opcion */
     unsigned int i;

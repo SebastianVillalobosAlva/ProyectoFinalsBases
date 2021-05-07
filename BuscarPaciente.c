@@ -18,7 +18,8 @@
 #include <stdlib.h>
 
 void BuscarPaciente(MYSQL *conU, char *name){
-    char enter[5], sql_statement[4056], sql_statement_2[4056], FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
+    char enter[5], sql_statement[4056], sql_statement_2[4056], sql_statement_3[5000];
+    char FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
     unsigned int i;
     int opcion = 0;
     MYSQL_RES *resPac;
@@ -54,6 +55,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco al paciente con fecha de nacimiento %s", FechaNac);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        mysql_query(conU,sql_statement_3);
         break;
 
         case 2:
@@ -76,6 +80,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco al paciente con el apellido paterno %s", ApellidoPat);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        mysql_query(conU,sql_statement_3);
         break;
 
         case 3:
@@ -98,6 +105,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco al paciente con el apellido materno %s", ApellidoMat);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        mysql_query(conU,sql_statement_3);
         break;
 
         case 4:
@@ -122,12 +132,12 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco al paciente con fecha inicial %s y fecha final %s de consulta", FechaConI, FechaConF);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        mysql_query(conU,sql_statement_3);
         break;
     }
     mysql_free_result(resPac);
-
-    sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement, name);
-    mysql_query(conU,sql_statement_2);
 
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
