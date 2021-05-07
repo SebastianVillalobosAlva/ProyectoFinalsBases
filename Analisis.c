@@ -61,14 +61,14 @@ void Analisis(MYSQL *conU){
         break;
 
         case 3:
-        printf("\nNombre: ");
+        printf("Nombre: ");
         scanf("%s", Nombre);
-        printf("\nApellido Paterno: ");
+        printf("Apellido Paterno: ");
         scanf("%s", ApellidoPat);
-        printf("\nApellido Materno: ");
+        printf("Apellido Materno: ");
         scanf("%s", ApellidoMat);
 
-        sprintf(sql_statement,"SELECT Vacunas,Fechava FROM PF_pacientes LEFT JOIN PF_pava USING(IDpaciente) LEFT JOIN PF_vacunas USING(IDvacunas) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND ApellidoMat = '%s", Nombre, ApellidoPat, ApellidoMat);
+        sprintf(sql_statement,"SELECT Vacunas,Fechava FROM PF_pacientes LEFT JOIN PF_pava USING(IDpaciente) LEFT JOIN PF_vacunas USING(IDvacunas) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND ApellidoMat = '%s'", Nombre, ApellidoPat, ApellidoMat);
         mysql_query(conU, sql_statement);
         resUser = mysql_store_result(conU);
 
