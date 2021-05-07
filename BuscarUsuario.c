@@ -65,7 +65,7 @@ void BuscarUsuario(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al usuario con el nombre %s", Nombre);
+        sprintf(sql_statement_2, "Se busco al usuario con el nombre '%s'", Nombre);
         sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES (%s, '%s')", sql_statement_2, name);
         mysql_query(conU,sql_statement_3);
 
