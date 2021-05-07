@@ -16,18 +16,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-void RemoveCharFromString(char *p, char c){
-    if (NULL == p)
-        return;
-    char *p0est = p;
-
-    while(*p){
-        if(*p != c)
-            *p0est++ = *p;
-        p++;
-    }
-    p0est = '\0';
-}
 
 void BuscarUsuario(MYSQL *conU, char *name){
     /* Declaramos la variables para buscar al usuario y donde vamos a guardar el query */
@@ -59,7 +47,7 @@ void BuscarUsuario(MYSQL *conU, char *name){
         scanf("%s", Nombre);
 
         /* Llenamos el query con el nombre */
-        sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s'", Nombre);
+        sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = %s", Nombre);
         mysql_query(conU,sql_statement);
         resUser = mysql_store_result(conU);
 
@@ -136,11 +124,9 @@ void BuscarUsuario(MYSQL *conU, char *name){
     /* Liberamos el resultado */
     mysql_free_result(resUser);
     printf("%s\n", sql_statement);
-    RemoveCharFromString(sql_statement, "'");
-    printf("%s\n", sql_statement);
-    // sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES (%s, '%s')", sql_statement, name);
-    // printf("%s\n", sql_statement_2);
-    // mysql_query(conU,sql_statement_2);
+    sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES (%s, '%s')", sql_statement, name);
+    printf("%s\n", sql_statement_2);
+    mysql_query(conU,sql_statement_2);
 
     /* Necesitamos apretar una tecla para continuar */
     printf("\nSelecciona una tecla y aprieta enter\n");
