@@ -124,7 +124,7 @@ void BuscarUsuario(MYSQL *conU, char *name){
     /* Liberamos el resultado */
     mysql_free_result(resUser);
 
-    sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement, name);
+    sprintf(sql_statement_2,"INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", "Hola", name);
     mysql_query(conU,sql_statement_2);
 
     /* Necesitamos apretar una tecla para continuar */
