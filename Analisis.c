@@ -15,13 +15,13 @@ void Analisis(MYSQL *conU){
     printf("\nEscoge al análisis que quieres revisar");
     printf("\n1)Enfermedad que mas afecta");
     printf("\n2)Pacientes que mas consultas tienen");
-    printf("\n3)Historial de vacunacion de los pacientes");
-    
+    printf("\n3)Historial de vacunacion de los pacientes\n");
+    printf("Elige la opcion: ");
     scanf("%i", &opcion);
 
     switch(opcion){
         case 1:
-        mysql_query(conU, "SELECT COUNT(IDenfermedad),enfermedad FROM PF_consultas LEFT JOIN PF_enfermedad USING(IDenfermedad) GROUP BY IDenfermedad ORDER BY COUNT(IDenfermedad)DESC LIMIT 1");
+        mysql_query(conU, "SELECT enfermedad, COUNT(IDenfermedad) FROM PF_consultas LEFT JOIN PF_enfermedad USING(IDenfermedad) GROUP BY IDenfermedad ORDER BY COUNT(IDenfermedad)DESC LIMIT 1");
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */
