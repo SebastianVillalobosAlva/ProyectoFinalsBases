@@ -69,7 +69,7 @@ void Analisis(MYSQL *conU){
         scanf("%s", ApellidoMat);
 
         sprintf(sql_statement,"SELECT Vacunas,Fechava FROM PF_pacientes LEFT JOIN PF_pava USING(IDpaciente) LEFT JOIN PF_vacunas USING(IDvacunas) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND ApellidoMat = '%s", Nombre, ApellidoPat, ApellidoMat);
-        mysql_query(conU, "SELECT Nombre,ApellidoPat,ApellidoMat, COUNT(IDpaciente) FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) GROUP BY IDpaciente ORDER BY COUNT(IDpaciente) DESC LIMIT 1");
+        mysql_query(conU, sql_statement);
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */
