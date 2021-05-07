@@ -23,7 +23,7 @@
 #include "BuscarUsuario.c"
 #include "ModificarUsuario.c"
 #include "ModificarPaciente.c"
-#include "Analisis1.c"
+#include "AnalisisAdmin.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     system("clear");
