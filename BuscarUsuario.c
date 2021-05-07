@@ -66,11 +66,8 @@ void BuscarUsuario(MYSQL *conU, char *name){
             printf("\n");
         }
         sprintf(sql_statement_2, "Se busco al usuario con el nombre %s", Nombre);
-        printf("%s", sql_statement_2);
         sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        printf("%s", sql_statement_3);
         mysql_query(conU,sql_statement_3);
-
         break;
 
         case 2:
@@ -97,6 +94,11 @@ void BuscarUsuario(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco al usuario con el apellido %s", ApellidoPat);
+        printf("%s", sql_statement_2);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        printf("%s", sql_statement_3);
+        mysql_query(conU,sql_statement_3);
         break;
 
         case 3:
@@ -125,6 +127,10 @@ void BuscarUsuario(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco al usuario con el nombre %s y el apellido %s", Nombre, ApellidoPat);
+        printf("%s", sql_statement_2);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        printf("%s", sql_statement_3);
         break;
     }
     /* Liberamos el resultado */
