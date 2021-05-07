@@ -23,6 +23,7 @@
 #include "BuscarUsuario.c"
 #include "ModificarUsuario.c"
 #include "ModificarPaciente.c"
+#include "Analisis.c"
 
 void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     system("clear");
@@ -37,7 +38,8 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     printf("4) Buscar por usuario\n");
     printf("5) Modificar usuario\n");
     printf("6) Modificar paciente\n");
-    printf("7) Salir del programa\n");
+    printf("7) Analisis\n");
+    printf("8) Salir del programa\n");
 
     /* Leemos la opcion a realizar */
     scanf("%i", &opcion);
@@ -80,8 +82,11 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
         ModificarPaciente(conM);
         break;
 
-        /* Rompemos el switch y regresamos a la funcion anterior */
         case 7:
+        Analisis(conM);
+        break;
+        /* Rompemos el switch y regresamos a la funcion anterior */
+        case 8:
         return;
     }
     /* Hacemos esta funcion recursiva al volverse a llamar a si misma */
