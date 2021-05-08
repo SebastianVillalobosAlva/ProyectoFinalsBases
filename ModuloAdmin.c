@@ -35,9 +35,11 @@ void ModuloAdmin(MYSQL *conM, char *name, char *pss){
     printf("1) Ver usuarios\n");
     printf("2) Ver pacientes\n");
     printf("3) Agregar usuarios\n");
+    printf("Modulo de Busqueda\n");
     printf("4) Buscar por usuario\n");
     printf("5) Modificar usuario\n");
     printf("6) Modificar paciente\n");
+    printf("Modulo de Análisis\n");
     printf("7) Analisis\n");
     printf("8) Salir del programa\n");
 

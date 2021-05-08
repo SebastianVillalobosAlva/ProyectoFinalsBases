@@ -38,6 +38,7 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     printf("4) Checar consultas por diagnostico\n"); //PF_diags
     printf("5) Modificar su usuario\n");
     printf("6) Ver mi usuario\n");
+    printf("Modulo de Busqueda\n");
     printf("7) Buscar paciente\n");
     printf("8) Análisis\n");
     printf("9) Salir del programa\n");
