@@ -42,7 +42,7 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     printf("7) Buscar paciente\n");
     printf("\nModulo de Análisis\n");
     printf("8) Análisis\n");
-    printf("9) Salir del programa\n");
+    printf("\n9) Salir del programa\n");
 
     /* Leemos la opcion a realizar */
     scanf("%i", &opcion);
