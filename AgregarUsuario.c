@@ -1,10 +1,9 @@
 /***************************************************************
-*  AgregarUsuario - Despliega todos los pacientes registrados  *
-*                                                              *
+*  AgregarPaciente - Nos permite agregar un usuario            *
+*                    a la base de datos                        *
 *                                                              *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *
-*                                                              *
 *                                                              *
 *                                                              *
 *  Valor de retorno:                                           * 

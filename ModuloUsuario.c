@@ -1,6 +1,6 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el user  *
-*                puede llevar a cabo                           *
+*  ModuloUsuario - Despliega los diferentes procesos que el    *
+*                usuario puede llevar a cabo                   *
 *                                                              *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *

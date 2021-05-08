@@ -1,11 +1,12 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el user  *
-*                puede llevar a cabo                           *
-*                                                              *
+*  BuscarPaciente - Nos permite buscar un paciente por su      *
+*                   nombre, apellido materno, paterno, fecha   *
+*                   de consulta. Al mismo tiempo, estas        *
+*                   busquedas se guardan en la base de datos   *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *
 *    char *name - Nombre del usuario                           *
-*    char *pss - Contraseña del usuario                        *
+*    c                                                         *
 *                                                              *
 *  Valor de retorno:                                           * 
 *    No hay valor de retorno                                   *

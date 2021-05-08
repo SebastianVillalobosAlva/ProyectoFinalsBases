@@ -1,16 +1,15 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el user  *
-*                puede llevar a cabo                           *
+*  AgregarPaciente - Nos permite agregar un paciente           *
+*                    a la base de datos                        *
 *                                                              *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *
-*    char *name - Nombre del usuario                           *
-*    char *pss - Contraseña del usuario                        *
+*                                                              *
 *                                                              *
 *  Valor de retorno:                                           * 
 *    No hay valor de retorno                                   *
 *                                                              *
-***************************************************************/ 
+***************************************************************/
 
 #include <mysql/mysql.h>
 #include <stdio.h>

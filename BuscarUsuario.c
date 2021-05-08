@@ -1,16 +1,17 @@
 /***************************************************************
-*  BuscarUsuario - Busca un usuario por apellido y nombre      *
-*                                                              *
-*                                                              *
+*  BuscarUsuario - Nos permite buscar un usuario por su        *
+*                   nombre, apellido paterno, y la combinaciom *
+*                   de los dos. Al mismo tiempo, estas         *
+*                   busquedas se guardan en la base de datos   *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *
-*                                                              *
-*                                                              *
+*    char *name - Nombre del usuario                           *
+*    c                                                         *
 *                                                              *
 *  Valor de retorno:                                           * 
 *    No hay valor de retorno                                   *
 *                                                              *
-***************************************************************/
+***************************************************************/ 
 
 #include <mysql/mysql.h>
 #include <stdio.h>

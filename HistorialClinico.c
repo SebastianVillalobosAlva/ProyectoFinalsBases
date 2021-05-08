@@ -1,11 +1,11 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el user  *
-*                puede llevar a cabo                           *
+*  HistorialClinico - Despliega el historial clinico de un     *
+*                     paciente en especifico                   *
 *                                                              *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *
-*    char *name - Nombre del usuario                           *
-*    char *pss - Contraseña del usuario                        *
+*                                                              *
+*                                                              *
 *                                                              *
 *  Valor de retorno:                                           * 
 *    No hay valor de retorno                                   *

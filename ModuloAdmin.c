@@ -1,5 +1,5 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el admin *
+*  ModuloAdmin - Despliega los diferentes procesos que el admin*
 *                puede llevar a cabo                           *
 *                                                              *
 *  Parámetros:                                                 *

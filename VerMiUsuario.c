@@ -1,6 +1,6 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el user  *
-*                puede llevar a cabo                           *
+*  VerMiUsuario - Permite ver todos los aspectos del usuario   *
+*                 cuya sesión se encuentra abierta             *
 *                                                              *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *

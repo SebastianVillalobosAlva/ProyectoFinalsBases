@@ -1,7 +1,7 @@
 /***************************************************************
-*  ModuloAdmin - Despliega los diferente procesos que el user  *
-*                puede llevar a cabo                           *
-*                                                              *
+*  ModificarPropioUsuario - Permite cambiar cualquier aspecto  *
+*                           del usuario cuya sesión se         *
+*                           encuentra abierta                  *
 *  Parámetros:                                                 *
 *    MYSQL *conn - Conector de MYSQL                           *
 *    char *name - Nombre del usuario                           *

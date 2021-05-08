@@ -1,3 +1,16 @@
+/***************************************************************
+*  Analisis - Nos da la opción de elegir diferentes            *
+*             tipos de análisis de nuestra base de datos       *
+*                                                              *
+*  Parámetros:                                                 *
+*    MYSQL *conn - Conector de MYSQL                           *
+*                                                              *
+*                                                              *
+*  Valor de retorno:                                           * 
+*    No hay valor de retorno                                   *
+*                                                              *
+***************************************************************/
+
 #include <mysql/mysql.h>
 #include <stdio.h>
 #include <string.h>
