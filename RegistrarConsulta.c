@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
-    char Nombre[25], email[30], sql_statement[5000], enter[5];
-    int IDpaciente, IDusuario, IDdiagnostico, IDmedicina, IDenfermedad;
+    char Nombre[25], email[30], descripcion[100], sql_statement[5000], enter[5];
+    int IDpaciente, IDusuario, IDmedicina, IDenfermedad;
     unsigned int i;
     float costo;
     printf("\nIngresa el nombre del paciente: ");
@@ -35,29 +35,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     // printf("\nNumero de IDusuario: %i\n\n", IDusuario);
     mysql_free_result(resUser);
 
-    /* Obtener ID del diagnostico */
-    mysql_query(conU,"SELECT diagnostico, IDdiagnostico FROM PF_diags");
-    resUser = mysql_store_result(conU);
-    printf("\n");
-
-    while(rowUser = mysql_fetch_row(resUser)){
-        i = 0;
-        for(i=0; i < mysql_num_fields(resUser); i++){
-            if(rowUser[i] != NULL){
-                printf("%s", rowUser[i]);
-                printf(" ");
-            }
-            else{
-                printf(" \n");
-            } 
-        }
-        printf("\n");
-    }
-    mysql_free_result(resUser);
-    printf("\nEscoge el diagnostico (Numero): ");
-    scanf(" %i", &IDdiagnostico);
-    // printf("\nEl IDdiagnostico es: %i\n\n", IDdiagnostico);
-
+    /* Obtener ID del medicamento */
     mysql_query(conU,"SELECT medicamento, IDmedicina FROM PF_meds");
     resUser = mysql_store_result(conU);
     printf("\n");
@@ -80,6 +58,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     scanf(" %i", &IDmedicina);
     // printf("\nEl IDmedicina es: %i\n\n", IDmedicina);
 
+    /* Obtener ID de la enfermedad */
     mysql_query(conU,"SELECT enfermedad, IDenfermedad FROM PF_enfermedad");
     resUser = mysql_store_result(conU);
     printf("\n");
@@ -101,6 +80,15 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     printf("\nEscoge la enfermedad (Numero): ");
     scanf(" %i", &IDenfermedad);
     // printf("\nEl IDenfermedad es: %i\n", IDenfermedad);
+
+    printf("Por favor ingrese la descripcion de la consulta:");
+    scaf("%s", descripcion);
+
+    printf("Por favor ingrese el costo de la consulta: ");
+    scanf("%f", costo);
+
+    sprintf(sql_statement, "INSERT INTO PF_consultas (descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad) VALUES ('%s','%f','%i','%i','%i','%i')", descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad);
+    mysql_query(conU,sql_statement);
 
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
