@@ -20,7 +20,7 @@
 
 void BuscarPaciente(MYSQL *conU, char *name){
     char enter[5], sql_statement[4056], sql_statement_2[4056], sql_statement_3[5000];
-    char FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40];
+    char FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40], enfermedad[40];
     unsigned int i;
     int opcion = 0;
     MYSQL_RES *resPac;
@@ -32,6 +32,7 @@ void BuscarPaciente(MYSQL *conU, char *name){
     printf("2) Apellido Paterno\n");
     printf("3) Apellido Materno\n");
     printf("4) Periodo de fechas de consulta\n");
+    printf("5) Padecimiento\n");
     printf(" Forma de buscar: ");
     scanf("%i", &opcion);
 
@@ -136,6 +137,45 @@ void BuscarPaciente(MYSQL *conU, char *name){
         sprintf(sql_statement_2, "Se busco al paciente con fecha inicial %s y fecha final %s de consulta", FechaConI, FechaConF);
         sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
         mysql_query(conU,sql_statement_3);
+        break;
+
+        case 5:
+        printf("Que padecimiento quieres buscar: \n");
+        mysql_query(conU,"SELECT enfermedad FROM PF_enfermedad");
+        resPac = mysql_store_result(conU);
+
+        while(rowPac = mysql_fetch_row(resPac)){
+            i = 0;
+            for(i=0; i < mysql_num_fields(resPac); i++){
+                if(rowPac[i] != NULL){
+                    printf("%s", rowPac[i]);
+                    printf(" ");
+                }
+                else{
+                    printf(" \n");
+                } 
+            }
+            printf("\n");
+        }
+        mysql_free_result(resPac);
+        printf("Enfermedad: ");
+        scanf("%s", enfermedad);
+        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s'", enfermedad);
+        resPac = mysql_store_result(conU);
+
+        while(rowPac = mysql_fetch_row(resPac)){
+            i = 0;
+            for(i=0; i < mysql_num_fields(resPac); i++){
+                if(rowPac[i] != NULL){
+                    printf("%s", rowPac[i]);
+                    printf(" ");
+                }
+                else{
+                    printf(" \n");
+                } 
+            }
+            printf("\n");
+        }
         break;
     }
     mysql_free_result(resPac);
