@@ -31,7 +31,7 @@ void VerPacientes(MYSQL *conU){
     // sprintf(sql_statement,"SELECT * FROM PF_usuarios");
     /* Query para obtener todos los pacientes */
     printf("\nEntro a VerPacientes\n");
-    mysql_query(conU,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_pacientes");
+    mysql_query(conU,"SELECT Nombre, ApellidoPat, ApellidoMat, Email FROM PF_pacientes");
     resPac = mysql_store_result(conU);
 
     /* Imprimir el resultado del query */
