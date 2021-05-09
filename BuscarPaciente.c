@@ -161,6 +161,7 @@ void BuscarPaciente(MYSQL *conU, char *name){
         printf("Enfermedad: ");
         scanf("%s", enfermedad);
         sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s'", enfermedad);
+        mysql_query(conU,sql_statement);
         resPac = mysql_store_result(conU);
 
         while(rowPac = mysql_fetch_row(resPac)){
