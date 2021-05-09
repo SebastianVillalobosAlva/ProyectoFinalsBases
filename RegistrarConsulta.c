@@ -6,6 +6,7 @@
 void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     char Nombre[25], email[30], sql_statement[5000], enter[5];
     int IDpaciente, IDusuario, IDdiagnostico, IDmedicina, IDenfermedad;
+    unsigned int i;
     float costo;
     printf("\nIngresa el nombre del paciente: ");
     scanf("%s", Nombre);
