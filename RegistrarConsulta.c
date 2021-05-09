@@ -85,7 +85,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     scanf("%s", descripcion);
 
     printf("Por favor ingrese el costo de la consulta: ");
-    scanf("%f", &costo);
+    scanf("%lf", &costo);
     // costo = atof(costo);
 
     sprintf(sql_statement, "INSERT INTO PF_consultas (descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad) VALUES ('%s','%f','%i','%i','%i','%i')", descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad);
