@@ -37,7 +37,7 @@ void ModificarPaciente(MYSQL *conU){
     /* Leemos el numero d registro y lo que queremos cambiar */
     printf(" Nombre del paciente: ");
     scanf("%s", name);
-    printf(" Apellido paterno del paciente: ");
+    printf(" Apellido materno del paciente: ");
     scanf("%s", apellido1);
     printf(" Email del paciente: ");
     scanf("%s", email);
