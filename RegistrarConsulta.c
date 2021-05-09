@@ -17,7 +17,7 @@ void RegistrarConsulta(MYSQL *conU){
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
-    printf("\nEl ID de usuario es: ")
+    printf("\nEl ID de usuario es: ");
     printf("%i", rowUser[0]);
 
 }
