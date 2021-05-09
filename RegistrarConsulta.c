@@ -5,8 +5,7 @@
 
 void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     char Nombre[25], email[30], descripcion[5000], sql_statement[5000], enter[5];
-    int IDpaciente, IDusuario, IDmedicina, IDenfermedad;
-    double costo;
+    int IDpaciente, IDusuario, IDmedicina, IDenfermedad, costo;
     unsigned int i;
     printf("\nIngresa el nombre del paciente: ");
     scanf("%s", Nombre);
@@ -85,10 +84,10 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     scanf("%s", descripcion);
 
     printf("Por favor ingrese el costo de la consulta: ");
-    scanf("%lf", &costo);
+    scanf("%i", &costo);
     // costo = atof(costo);
 
-    sprintf(sql_statement, "INSERT INTO PF_consultas (descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad) VALUES ('%s','%f','%i','%i','%i','%i')", descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad);
+    sprintf(sql_statement, "INSERT INTO PF_consultas (descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad) VALUES ('%s','%i','%i','%i','%i','%i')", descripcion, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad);
     mysql_query(conU,sql_statement);
 
     printf("\nSelecciona una tecla y aprieta enter\n");
