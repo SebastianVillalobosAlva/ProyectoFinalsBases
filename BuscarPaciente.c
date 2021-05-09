@@ -158,7 +158,7 @@ void BuscarPaciente(MYSQL *conU, char *name){
             printf("\n");
         }
         mysql_free_result(resPac);
-        printf("Enfermedad: ");
+        printf("\nEnfermedad: \n");
         scanf("%s", enfermedad);
         sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s'", enfermedad);
         mysql_query(conU,sql_statement);
@@ -177,6 +177,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
+        sprintf(sql_statement_2, "Se busco a los pacientes con la enfermedad '%s'", enfermadad);
+        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
+        mysql_query(conU,sql_statement_3);
         break;
     }
     mysql_free_result(resPac);
