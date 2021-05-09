@@ -32,7 +32,7 @@ void VerUsuarios(MYSQL *conU){
 
     /* Query para obtener todos los usuarios */
     printf("\nEntro a VerUsuarios\n");
-    mysql_query(conU,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios");
+    mysql_query(conU,"SELECT Nombreu, ApellidoPatu, ApellidoMatu, Contrasenau FROM PF_usuarios");
     resUser = mysql_store_result(conU);
 
     /* Imprimir el resultado del query */

@@ -55,6 +55,7 @@ void ModificarUsuario(MYSQL *conU){
     id = rowUser[0];
     printf("El ID del usuario es: ");
     printf("%i", id);
+    mysql_free_result(resUser);
 
     switch(opcion){
         case 1:
