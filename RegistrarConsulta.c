@@ -19,6 +19,5 @@ void RegistrarConsulta(MYSQL *conU){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     printf("%s", rowUser[0]);
-    printf("%s", rowUser[1]);
     mysql_free_result(resUser);
 }
