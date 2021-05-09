@@ -10,7 +10,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     float costo;
     printf("\nIngresa el nombre del paciente: ");
     scanf("%s", Nombre);
-    printf("\nIngresa el email del paciente: ");
+    printf("Ingresa el email del paciente: ");
     scanf("%s", email);
 
     MYSQL_RES *resUser;
@@ -23,7 +23,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDpaciente = atoi(rowUser[0]);
-    printf("Numero de IDpaciente: %i", IDpaciente);
+    printf("\nNumero de IDpaciente: %i", IDpaciente);
     mysql_free_result(resUser);
 
     /* Obtener ID del usuario */
@@ -32,7 +32,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDusuario = atoi(rowUser[0]);
-    printf("Numero de IDusuario: %i", IDusuario);
+    printf("\nNumero de IDusuario: %i", IDusuario);
     mysql_free_result(resUser);
 
     /* Obtener ID del diagnostico */
