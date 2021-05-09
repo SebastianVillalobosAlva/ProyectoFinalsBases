@@ -27,4 +27,5 @@ void RegistrarConsulta(MYSQL *conU){
     // printf("\nEl ID de usuario es: ");
     // printf("%s", rowUser[0]);
 
+    }
 }
