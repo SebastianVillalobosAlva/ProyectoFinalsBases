@@ -4,7 +4,8 @@
 #include <stdlib.h>
 
 void RegistrarConsulta(MYSQL *conU){
-    char Nombre[40], email[40], sql_statement[2048];
+    char Nombre[40], email[40], sql_statement[5000];
+    unsigned int i;
     printf("\nIngresa el nombre del paciente: ");
     scanf("%s", Nombre);
     printf("\nIngresa el email del paciente: ");
@@ -17,7 +18,14 @@ void RegistrarConsulta(MYSQL *conU){
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
-    printf("\nEl ID de usuario es: ");
-    printf("%s", rowUser[0]);
+    for(i=0; i < mysql_num_fields(resUser); i++){
+            if(rowUser[i] != NULL){
+                printf("%s", rowUser[i]);
+                printf(" ");
+                printf("%i", i);
+            }
+            else{
+    // printf("\nEl ID de usuario es: ");
+    // printf("%s", rowUser[0]);
 
 }
