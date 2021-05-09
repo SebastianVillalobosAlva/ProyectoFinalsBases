@@ -38,6 +38,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     /* Obtener ID del diagnostico */
     mysql_query(conU,"SELECT diagnostico, IDdiagnostico FROM PF_diags");
     resUser = mysql_store_result(conU);
+    printf("\n");
 
     while(rowUser = mysql_fetch_row(resUser)){
         i = 0;
@@ -59,6 +60,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
 
     mysql_query(conU,"SELECT medicamento, IDmedicina FROM PF_meds");
     resUser = mysql_store_result(conU);
+    printf("\n");
 
     while(rowUser = mysql_fetch_row(resUser)){
         i = 0;
@@ -80,6 +82,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
 
     mysql_query(conU,"SELECT enfermedad, IDenfermedad FROM PF_enfermedad");
     resUser = mysql_store_result(conU);
+    printf("\n");
 
     while(rowUser = mysql_fetch_row(resUser)){
         i = 0;
