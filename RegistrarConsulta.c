@@ -17,7 +17,7 @@ void RegistrarConsulta(MYSQL *conU){
     sprintf(sql_statement,"SELECT IDpaciente FROM PF_pacientes WHERE Nombre = '%s' AND Email = '%s'", Nombre, email);
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
-    rowUser = mysql_fetch_row(resUser)
+    rowUser = mysql_fetch_row(resUser);
     printf("%s", rowUser[0]);
     printf("%s", rowUser[0]);
     mysql_free_result(resUser);
