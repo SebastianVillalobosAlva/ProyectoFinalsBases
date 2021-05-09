@@ -52,9 +52,9 @@ void ModificarUsuario(MYSQL *conU){
     mysql_query(conU,sql_statement2);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
-    id = rowUser[0];
+    // id = rowUser[0];
     printf("El ID del usuario es: ");
-    printf("%i", id);
+    printf("%i", rowUser[0]);
     mysql_free_result(resUser);
 
     switch(opcion){
