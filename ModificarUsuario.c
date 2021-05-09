@@ -19,8 +19,13 @@
 
 void ModificarUsuario(MYSQL *conU){
     /* Declaramos la variables para agregar al usuario */
-    char enter[5], sql_statement[2048], Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
+    char enter[5], sql_statement[2048], sql_statement2[2048];
+    char Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
+    char name[40], apellido1[40], pss[40];
     
+    MYSQL_RES *resUser;
+    MYSQL_ROW rowUser;
+
     /* Declaramos la variable del contador y opcion */
     int opcion, id;
 
@@ -33,12 +38,23 @@ void ModificarUsuario(MYSQL *conU){
     printf("4) Fecha Nacimiento\n");
     printf("5) Email\n");
 
-    /* Leemos el numero d registro y lo que queremos cambiar */
-    printf(" Numero de registro (ID): ");
-    scanf("%i", &id);
+    /* Leemos el nombre y apellidos del usuario y lo que queremos cambiar */
+    printf(" Nombre del usuario: ");
+    scanf("%s", name);
+    printf(" Apellido paterno del usuario: ");
+    scanf("%s", apellido1);
+    printf(" Contraseña del usuario: ");
+    scanf("%s", pss);
     printf(" Dato a cambiar: ");
     scanf("%i", &opcion);
 
+    sprintf(sql_statement2, "SELECT IDusuario FROM PF_usuarios WHERE Nombreu ='%s' AND ApellidoPatu = '%s' AND Contrasenau = '%s'", name, apellido1, pss);
+    mysql_query(conU,sql_statement2);
+    resUser = mysql_store_result(conU);
+    rowUser = mysql_fetch_row(resUser);
+    id = rowUser[0];
+    printf("El ID del usuario es: ");
+    printf("%i", id);
 
     switch(opcion){
         case 1:
