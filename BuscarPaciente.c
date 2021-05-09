@@ -177,7 +177,7 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco a los pacientes con la enfermedad '%s'", enfermadad);
+        sprintf(sql_statement_2, "Se busco a los pacientes con la enfermedad '%s'", enfermedad);
         sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
         mysql_query(conU,sql_statement_3);
         break;
