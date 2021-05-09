@@ -5,6 +5,7 @@
 
 void RegistrarConsulta(MYSQL *conU){
     char Nombre[25], email[30], sql_statement[5000], enter[5];
+    int ID;
     printf("\nIngresa el nombre del paciente: ");
     scanf("%s", Nombre);
     printf("\nIngresa el email del paciente: ");
@@ -20,6 +21,8 @@ void RegistrarConsulta(MYSQL *conU){
     rowUser = mysql_fetch_row(resUser);
     printf("El ID es:");
     printf("%s", rowUser[0]);
+    ID = rowUser[0] - '0';
+    printf("Numero de ID: %i", ID);
     mysql_free_result(resUser);
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
