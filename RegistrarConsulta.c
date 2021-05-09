@@ -21,7 +21,7 @@ void RegistrarConsulta(MYSQL *conU){
     rowUser = mysql_fetch_row(resUser);
     printf("El ID es:");
     printf("%s", rowUser[0]);
-    ID = rowUser[0] - '0';
+    ID = atoi(rowUser[0]);
     printf("Numero de ID: %i", ID);
     mysql_free_result(resUser);
     printf("\nSelecciona una tecla y aprieta enter\n");
