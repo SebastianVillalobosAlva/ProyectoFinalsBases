@@ -100,7 +100,7 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
         break;
 
         case 9:
-        RegistrarConsultas(conU);
+        RegistrarConsulta(conU);
         break;
         /* Rompemos el switch y regresamos a la funcion anterior */
         case 10:
