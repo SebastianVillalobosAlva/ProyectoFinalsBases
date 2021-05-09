@@ -23,7 +23,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDpaciente = atoi(rowUser[0]);
-    printf("\nNumero de IDpaciente: %i", IDpaciente);
+    // printf("\nNumero de IDpaciente: %i", IDpaciente);
     mysql_free_result(resUser);
 
     /* Obtener ID del usuario */
@@ -32,7 +32,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDusuario = atoi(rowUser[0]);
-    printf("\nNumero de IDusuario: %i\n\n", IDusuario);
+    // printf("\nNumero de IDusuario: %i\n\n", IDusuario);
     mysql_free_result(resUser);
 
     /* Obtener ID del diagnostico */
@@ -55,7 +55,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     mysql_free_result(resUser);
     printf("\nEscoge el diagnostico (Numero): ");
     scanf(" %i", &IDdiagnostico);
-    printf("\nEl IDdiagnostico es: %i\n\n", IDdiagnostico);
+    // printf("\nEl IDdiagnostico es: %i\n\n", IDdiagnostico);
 
     mysql_query(conU,"SELECT medicamento, IDmedicina FROM PF_meds");
     resUser = mysql_store_result(conU);
@@ -76,7 +76,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     mysql_free_result(resUser);
     printf("\nEscoge la medicina (Numero): ");
     scanf(" %i", &IDmedicina);
-    printf("\nEl IDmedicina es: %i\n\n", IDmedicina);
+    // printf("\nEl IDmedicina es: %i\n\n", IDmedicina);
 
     mysql_query(conU,"SELECT enfermedad, IDenfermedad FROM PF_enfermedad");
     resUser = mysql_store_result(conU);
@@ -97,7 +97,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     mysql_free_result(resUser);
     printf("\nEscoge la enfermedad (Numero): ");
     scanf(" %i", &IDenfermedad);
-    printf("\nEl IDenfermedad es: %i\n", IDenfermedad);
+    // printf("\nEl IDenfermedad es: %i\n", IDenfermedad);
 
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
