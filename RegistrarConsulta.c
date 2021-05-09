@@ -5,7 +5,8 @@
 
 void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     char Nombre[25], email[30], sql_statement[5000], enter[5];
-    int IDpaciente, IDusuario;
+    int IDpaciente, IDusuario, IDdiagnostico, IDmedicina, IDenfermedad;
+    float costo;
     printf("\nIngresa el nombre del paciente: ");
     scanf("%s", Nombre);
     printf("\nIngresa el email del paciente: ");
@@ -17,12 +18,11 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     /* Obtener ID del paciente */
     //jasamelu@gmail.com
     sprintf(sql_statement,"SELECT IDpaciente FROM PF_pacientes WHERE Nombre = '%s' AND Email = '%s'", Nombre, email);
-    // mysql_query(conU,"SELECT IDpaciente FROM PF_pacientes WHERE Nombre = 'Jaime' AND Email = 'jasamelu@gmail.com'");
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDpaciente = atoi(rowUser[0]);
-    printf("Numero de ID: %i", IDpaciente);
+    printf("Numero de IDpaciente: %i", IDpaciente);
     mysql_free_result(resUser);
 
     /* Obtener ID del usuario */
@@ -31,9 +31,72 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDusuario = atoi(rowUser[0]);
-    printf("Numero de ID: %i", IDusuario);
+    printf("Numero de IDusuario: %i", IDusuario);
     mysql_free_result(resUser);
 
+    /* Obtener ID del diagnostico */
+    mysql_query(conU,"SELECT diagnostico, IDdiagnostico FROM PF_diags");
+    resUser = mysql_store_result(conU);
+
+    while(rowUser = mysql_fetch_row(resUser)){
+        i = 0;
+        for(i=0; i < mysql_num_fields(resUser); i++){
+            if(rowUser[i] != NULL){
+                printf("%s", rowUser[i]);
+                printf(" ");
+            }
+            else{
+                printf(" \n");
+            } 
+        }
+        printf("\n");
+    }
+    mysql_free_result(resUser);
+    printf("Escoge el diagnostico (Numero): ");
+    scanf(" %i", &IDdiagnostico);
+    printf("\nEl IDdiagnostico es: %i", IDdiagnostico);
+
+    mysql_query(conU,"SELECT medicamento, IDmedicina FROM PF_meds");
+    resUser = mysql_store_result(conU);
+
+    while(rowUser = mysql_fetch_row(resUser)){
+        i = 0;
+        for(i=0; i < mysql_num_fields(resUser); i++){
+            if(rowUser[i] != NULL){
+                printf("%s", rowUser[i]);
+                printf(" ");
+            }
+            else{
+                printf(" \n");
+            } 
+        }
+        printf("\n");
+    }
+    mysql_free_result(resUser);
+    printf("Escoge la medicina (Numero): ");
+    scanf(" %i", &IDmedicina);
+    printf("\nEl IDmedicina es: %i", IDmedicina);
+
+    mysql_query(conU,"SELECT enfermedad, IDenfermedad FROM PF_enfermedad");
+    resUser = mysql_store_result(conU);
+
+    while(rowUser = mysql_fetch_row(resUser)){
+        i = 0;
+        for(i=0; i < mysql_num_fields(resUser); i++){
+            if(rowUser[i] != NULL){
+                printf("%s", rowUser[i]);
+                printf(" ");
+            }
+            else{
+                printf(" \n");
+            } 
+        }
+        printf("\n");
+    }
+    mysql_free_result(resUser);
+    printf("Escoge la enfermedad (Numero): ");
+    scanf(" %i", &IDenfermedad);
+    printf("\nEl IDenfermedad es: %i", IDenfermedad);
 
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
