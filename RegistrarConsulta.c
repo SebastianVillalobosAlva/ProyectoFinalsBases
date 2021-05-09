@@ -16,16 +16,17 @@ void RegistrarConsulta(MYSQL *conU){
 
     sprintf(sql_statement,"SELECT IDpaciente FROM PF_paciente WHERE Nombre ='%s' AND Email = '%s'", Nombre, email);
     mysql_query(conU,sql_statement);
-    resUser = mysql_store_result(conU);
-    rowUser = mysql_fetch_row(resUser);
-    for(i=0; i < mysql_num_fields(resUser); i++){
+    while(rowUser = mysql_fetch_row(resUser)){
+        i = 0;
+        for(i=0; i < mysql_num_fields(resUser); i++){
             if(rowUser[i] != NULL){
                 printf("%s", rowUser[i]);
                 printf(" ");
-                printf("%i", i);
             }
-    // printf("\nEl ID de usuario es: ");
-    // printf("%s", rowUser[0]);
-
+            else{
+                printf(" \n");
+            } 
+        }
+        printf("\n");
     }
 }
