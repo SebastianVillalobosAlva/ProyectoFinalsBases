@@ -24,6 +24,7 @@
 #include "ChecarConsultas.c"
 #include "ChecarDiagnostico.c"
 #include "Analisis.c"
+#include "RegistrarConsulta.c"
 
 void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     system("clear");
@@ -42,7 +43,8 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
     printf("7) Buscar paciente\n");
     printf("\nModulo de Análisis\n");
     printf("8) Análisis\n");
-    printf("\n9) Salir del programa\n");
+    printf("9) Registrar consulta");
+    printf("\n10) Salir del programa\n");
 
     /* Leemos la opcion a realizar */
     scanf("%i", &opcion);
@@ -97,8 +99,11 @@ void ModuloUsuario(MYSQL *conU, char *name, char *pss){
         Analisis(conU);
         break;
 
-        /* Rompemos el switch y regresamos a la funcion anterior */
         case 9:
+        RegistrarConsultas(conU);
+        break;
+        /* Rompemos el switch y regresamos a la funcion anterior */
+        case 10:
         return;
     }
     /* Hacemos esta funcion recursiva al volverse a llamar a si misma */
