@@ -81,7 +81,7 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     printf("\nEl IDenfermedad es: %i\n", IDenfermedad);
 
     printf("Por favor ingrese la descripcion de la consulta:");
-    fgets(descripcion, 100);
+    fgets(descripcion, 100, stdin);
 
     // printf("Por favor ingrese el costo de la consulta: ");
     // scanf("%i", &costo);
