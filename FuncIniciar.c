@@ -65,6 +65,7 @@ void Iniciar(MYSQL *conn, char *name, char *pss, int intentos){
             }
 
             if(rowUser == NULL){
+                printf("Entraste a intentos");
                 intentos++;
                 Iniciar(conn, name, pss, intentos);
             }
