@@ -63,7 +63,7 @@ void IniciarSesion(int intentos){
 
     if (intentos < 3){
         sprintf(sql_statement,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", nombre, psswrd);
-        mysql_query(conn,sql_statement);
+        mysql_query(con,sql_statement);
         resAdmin = mysql_store_result(con);
         rowAdmin = mysql_fetch_row(resAdmin);
 
@@ -77,7 +77,7 @@ void IniciarSesion(int intentos){
             sprintf(sql_statement_u,"SELECT * FROM PF_usuarios WHERE Nombreu='%s' AND Contrasenau='%s'", nombre, psswrd);
             
             /* Realizamos el query y obtenemos el resultado */
-            mysql_query(conn,sql_statement_u);
+            mysql_query(con,sql_statement_u);
             resUser = mysql_store_result(con);
             rowUser = mysql_fetch_row(resUser);
             
