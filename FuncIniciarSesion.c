@@ -86,7 +86,7 @@ void IniciarSesion(int intentos){
                 Iniciar(con, nombre, psswrd);
             }
             if(rowUser == NULL){
-                printf("\nTe quedan %i intentos", 3 - intentos);
+                printf("\nTe quedan %i intentos\n", 3 - intentos);
                 intentos++;
                 IniciarSesion(intentos);
             }
