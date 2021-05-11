@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include "ModuloAdmin.c"
 #include "ModuloUsuario.c"
+#include "FuncIniciarSesion.c"
 
 //Admin: name=Sebastian pss=1q2w3e4r5t
 //User: name=Luis pss=1234
