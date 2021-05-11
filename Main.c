@@ -21,10 +21,11 @@
 #include "FuncIniciarSesion.c"
 
 int main(void){
+    int intentos = 0;
     /* Borramos todo el contenido que hay en la terminal */
     system("clear");
 
     /* Llamamos a la función IniciarSesion() */
-    IniciarSesion();
+    IniciarSesion(intentos);
     return 0;
 }

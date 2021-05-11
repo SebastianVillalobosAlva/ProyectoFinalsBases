@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include "FuncIniciar.c"
 
-void IniciarSesion(){
+void IniciarSesion(int intentos){
     /* Variables de MySQL para conectarnos a la base de datos 
     (servidor, usuario, password y base de datos)*/
     char *server = "localhost";
@@ -59,7 +59,7 @@ void IniciarSesion(){
 
     /* Llamamos a la función Iniciar(), esta recibe el conector, 
     nombre y contraseña de la persona que quiere iniciar sesión */
-    Iniciar(con, nombre, psswrd);
+    Iniciar(con, nombre, psswrd, intentos);
 
     /* Cerramos el conector */
     mysql_close(con);
