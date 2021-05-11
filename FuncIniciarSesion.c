@@ -28,6 +28,10 @@ void IniciarSesion(int intentos){
     char nombre[25];
     char psswrd[30];
 
+    char sql_statement[100],sql_statement_u[100], enter[5];
+    MYSQL_RES *resAdmin, *resUser;
+    MYSQL_ROW rowAdmin, rowUser;
+
     printf("Inicia Sesion");
 
     /* Obtenemos el input del nombre del usuario */
@@ -57,9 +61,40 @@ void IniciarSesion(int intentos){
     }
     printf("The connection is open\n");
 
+    if (intentos < 3){
+        sprintf(sql_statement,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", nombre, psswrd);
+        mysql_query(conn,sql_statement);
+        resAdmin = mysql_store_result(conn);
+        rowAdmin = mysql_fetch_row(resAdmin);
+
+        /* Si existe el registro de administrador, iniciamos sesión*/
+        if(rowAdmin != NULL){
+            Iniciar(con, nombre, psswrd);
+        }
+        /* Si no existe el registro de administrador checamos si existe el registro de usuario */
+        else{
+            /* Concatenamos el nombre y contraseña a nuestro query de usuario */
+            sprintf(sql_statement_u,"SELECT * FROM PF_usuarios WHERE Nombreu='%s' AND Contrasenau='%s'", nombre, psswrd);
+            
+            /* Realizamos el query y obtenemos el resultado */
+            mysql_query(conn,sql_statement_u);
+            resUser = mysql_store_result(conn);
+            rowUser = mysql_fetch_row(resUser);
+            
+            /* Si existe el registro de usuario, iniciamos sesión*/
+            if(rowUser != NULL){
+                Iniciar(con, nombre, psswrd);
+            }
+            if(rowUser == NULL){
+                printf("Te quedan %i intentos", intentos);
+                intentos++;
+                IniciarSesion(intentos);
+            }
+        }
+    }
     /* Llamamos a la función Iniciar(), esta recibe el conector, 
     nombre y contraseña de la persona que quiere iniciar sesión */
-    Iniciar(con, nombre, psswrd, intentos);
+    // Iniciar(con, nombre, psswrd);
 
     /* Cerramos el conector */
     mysql_close(con);
