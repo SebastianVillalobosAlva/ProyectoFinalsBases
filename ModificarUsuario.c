@@ -21,7 +21,7 @@ void ModificarUsuario(MYSQL *conU){
     /* Declaramos la variables para agregar al usuario */
     char enter[5], sql_statement[5000], sql_statement2[5000];
     char Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30], Contrasenau[30];
-    char name[40], apellido1[40], pss[40];
+    char name[40], apellido1[40], pss[40], email[40];
     
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
@@ -46,6 +46,8 @@ void ModificarUsuario(MYSQL *conU){
     scanf("%s", apellido1);
     printf(" Contraseña del usuario: ");
     scanf("%s", pss);
+    printf(" Email del usuario: ");
+    scanf("%s", email);
     printf(" Dato a cambiar: ");
     scanf("%i", &opcion);
 
@@ -57,7 +59,7 @@ void ModificarUsuario(MYSQL *conU){
         scanf(" %s", Nombre);
 
         /* Llenamos el query con el nombre y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET Nombreu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'  ", Nombre, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Nombreu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s' ", Nombre, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
 
@@ -68,7 +70,7 @@ void ModificarUsuario(MYSQL *conU){
         scanf(" %s", ApellidoPat);
 
         /* Llenamos el query con el apellido paterno y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoPatu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , ApellidoPat, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoPatu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , ApellidoPat, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
 
@@ -79,7 +81,7 @@ void ModificarUsuario(MYSQL *conU){
         scanf(" %s", ApellidoMat);
 
         /* Llenamos el query con el apellido materno y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoMatu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , ApellidoMat, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoMatu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , ApellidoMat, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
 
@@ -90,7 +92,7 @@ void ModificarUsuario(MYSQL *conU){
         scanf(" %s", FechaNac);
 
         /* Llenamos el query con la fecha de nacimiento y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET FechaNacu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , FechaNac, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET FechaNacu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , FechaNac, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
 
@@ -101,7 +103,7 @@ void ModificarUsuario(MYSQL *conU){
         scanf(" %s", Email);
 
         /* Llenamos el query con el email y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , Email, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , Email, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
 
@@ -110,7 +112,7 @@ void ModificarUsuario(MYSQL *conU){
         printf("Contraseña:");
         scanf(" %s", Contrasenau);
 
-        sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , Contrasenau, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , Contrasenau, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
     }
