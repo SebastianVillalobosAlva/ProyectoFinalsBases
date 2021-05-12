@@ -101,7 +101,7 @@ void ModificarUsuario(MYSQL *conU){
         scanf(" %s", Email);
 
         /* Llenamos el query con el email y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s's" , Email, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , Email, name, apellido1, pss);
         mysql_query(conU,sql_statement);
         break;
 
