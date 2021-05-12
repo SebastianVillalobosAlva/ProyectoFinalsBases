@@ -24,7 +24,7 @@ void VerMiUsuario(MYSQL *conU, char *name, char *pss){
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
 
-    sprintf(sql_statement,"SELECT IDusuario FROM PF_usuarios WHERE Nombre = '%s' AND Contrasenau = '%s'", name, pss);
+    sprintf(sql_statement,"SELECT IDusuario FROM PF_usuarios WHERE Nombreu = '%s' AND Contrasenau = '%s'", name, pss);
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
