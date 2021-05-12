@@ -160,7 +160,7 @@ void BuscarPaciente(MYSQL *conU, char *name){
         mysql_free_result(resPac);
         printf("\nEnfermedad: \n");
         scanf("%s", enfermedad);
-        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s'", enfermedad);
+        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s' GROUP BY IDpaciente", enfermedad);
         mysql_query(conU,sql_statement);
         resPac = mysql_store_result(conU);
 
