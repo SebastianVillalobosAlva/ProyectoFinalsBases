@@ -30,7 +30,7 @@ void ChecarConsultas(MYSQL *conU){
     printf(" Apellido Paterno: ");
     scanf("%s", ApellidoPat);
     printf(" Email: ");
-    scanf("%s", Email)
+    scanf("%s", Email);
 
     sprintf(sql_statement, "SELECT descripcionc, costo, fechacons  FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE Nombreu = '%s' AND ApellidoPatu = '%s' AND Emailu = '%s'", Nombre, ApellidoPat, Email);
 
