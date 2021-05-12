@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 void VerMiUsuario(MYSQL *conU, char *name, char *pss){
-    char enter[5], sql_statement[5000];
+    char enter[5], sql_statement[5000], sql_statement_2[5000];
     unsigned int i;
     int IDusuario;
     MYSQL_RES *resUser;
@@ -29,9 +29,10 @@ void VerMiUsuario(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDusuario = atoi(rowUser[0]);
+    printf("%s", rowUser[0]);
     mysql_free_result(resUser);
 
-    sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu, FechaNacu, Emailu, Contrasenau FROM PF_usuarios WHERE IDusuario = '%i", IDusuario);
+    sprintf(sql_statement_2,"SELECT Nombreu, ApellidoPatu, ApellidoMatu, FechaNacu, Emailu, Contrasenau FROM PF_usuarios WHERE IDusuario = '%i", IDusuario);
     printf("\nEntro a VerMiUsuario\n");
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
