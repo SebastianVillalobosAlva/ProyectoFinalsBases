@@ -42,12 +42,12 @@ void ModificarUsuario(MYSQL *conU){
     /* Leemos el nombre y apellidos del usuario y lo que queremos cambiar */
     printf(" Nombre del usuario: ");
     scanf("%s", name);
-    printf(" Apellido paterno del usuario: ");
+    printf(" Apellido materno del usuario: ");
     scanf("%s", apellido1);
-    printf(" Contraseña del usuario: ");
-    scanf("%s", pss);
     printf(" Email del usuario: ");
     scanf("%s", email);
+    printf(" Contraseña del usuario: ");
+    scanf("%s", pss);
     printf(" Dato a cambiar: ");
     scanf("%i", &opcion);
 
@@ -56,10 +56,10 @@ void ModificarUsuario(MYSQL *conU){
         /* Leemos el nombre */
         printf("Escogiste la opcion 1\n");
         printf("Nombre:");
-        scanf(" %s", Nombre);
+        scanf("%s", Nombre);
 
         /* Llenamos el query con el nombre y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_usuarios SET Nombreu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s' ", Nombre, name, apellido1, pss, email);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Nombreu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu = '%s' ", Nombre, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
         break;
 
@@ -67,7 +67,7 @@ void ModificarUsuario(MYSQL *conU){
         /* Leemos el apellido paterno */
         printf("Escogiste la opcion 2\n");
         printf("Apellido Paterno:");
-        scanf(" %s", ApellidoPat);
+        scanf("%s", ApellidoPat);
 
         /* Llenamos el query con el apellido paterno y lo ejecutamos */
         sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoPatu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , ApellidoPat, name, apellido1, pss, email);
@@ -78,7 +78,7 @@ void ModificarUsuario(MYSQL *conU){
         /* Leemos el apellido materno */
         printf("Escogiste la opcion 3\n");
         printf("Apellido Materno:");
-        scanf(" %s", ApellidoMat);
+        scanf("%s", ApellidoMat);
 
         /* Llenamos el query con el apellido materno y lo ejecutamos */
         sprintf(sql_statement, "UPDATE PF_usuarios SET ApellidoMatu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , ApellidoMat, name, apellido1, pss, email);
@@ -89,7 +89,7 @@ void ModificarUsuario(MYSQL *conU){
         /* Leemos la fecha de nacimiento */
         printf("Escogiste la opcion 4\n");
         printf("Fecha de nacimiento:");
-        scanf(" %s", FechaNac);
+        scanf("%s", FechaNac);
 
         /* Llenamos el query con la fecha de nacimiento y lo ejecutamos */
         sprintf(sql_statement, "UPDATE PF_usuarios SET FechaNacu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , FechaNac, name, apellido1, pss, email);
@@ -100,7 +100,7 @@ void ModificarUsuario(MYSQL *conU){
         /* Leemos el nombre */
         printf("Escogiste la opcion 5\n");
         printf("Email:");
-        scanf(" %s", Email);
+        scanf("%s", Email);
 
         /* Llenamos el query con el email y lo ejecutamos */
         sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , Email, name, apellido1, pss, email);
@@ -110,7 +110,7 @@ void ModificarUsuario(MYSQL *conU){
         case 6:
         printf("Escogiste la opcion 6\n");
         printf("Contraseña:");
-        scanf(" %s", Contrasenau);
+        scanf("%s", Contrasenau);
 
         sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s' AND Emailu ='%s'" , Contrasenau, name, apellido1, pss, email);
         mysql_query(conU,sql_statement);
