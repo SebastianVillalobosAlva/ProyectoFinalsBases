@@ -37,7 +37,7 @@ void ModificarUsuario(MYSQL *conU){
     printf("3) Apellido Materno\n");
     printf("4) Fecha Nacimiento\n");
     printf("5) Email\n");
-    printf("6) Contraseña");
+    printf("6) Contraseña\n");
 
     /* Leemos el nombre y apellidos del usuario y lo que queremos cambiar */
     printf(" Nombre del usuario: ");
