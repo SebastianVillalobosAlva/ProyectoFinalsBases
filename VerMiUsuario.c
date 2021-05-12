@@ -29,11 +29,10 @@ void VerMiUsuario(MYSQL *conU, char *name, char *pss){
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDusuario = atoi(rowUser[0]);
-    printf("ID: %i", IDusuario);
     mysql_free_result(resUser);
 
-    sprintf(sql_statement_2,"SELECT Nombreu, ApellidoPatu, ApellidoMatu, FechaNacu, Emailu, Contrasenau FROM PF_usuarios WHERE IDusuario = '%i'", IDusuario);
     printf("\nEntro a VerMiUsuario\n");
+    sprintf(sql_statement_2,"SELECT Nombreu, ApellidoPatu, ApellidoMatu, FechaNacu, Emailu, Contrasenau FROM PF_usuarios WHERE IDusuario = '%i'", IDusuario);
     mysql_query(conU,sql_statement_2);
     resUser = mysql_store_result(conU);
 

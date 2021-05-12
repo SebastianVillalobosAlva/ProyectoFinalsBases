@@ -20,7 +20,7 @@
 void ModificarUsuario(MYSQL *conU){
     /* Declaramos la variables para agregar al usuario */
     char enter[5], sql_statement[5000], sql_statement2[5000];
-    char Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
+    char Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30], Contrasenau[30];
     char name[40], apellido1[40], pss[40];
     
     MYSQL_RES *resUser;
@@ -37,6 +37,7 @@ void ModificarUsuario(MYSQL *conU){
     printf("3) Apellido Materno\n");
     printf("4) Fecha Nacimiento\n");
     printf("5) Email\n");
+    printf("6) Contraseña");
 
     /* Leemos el nombre y apellidos del usuario y lo que queremos cambiar */
     printf(" Nombre del usuario: ");
@@ -101,6 +102,15 @@ void ModificarUsuario(MYSQL *conU){
 
         /* Llenamos el query con el email y lo ejecutamos */
         sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s's" , Email, name, apellido1, pss);
+        mysql_query(conU,sql_statement);
+        break;
+
+        case 6:
+        printf("Escogiste la opcion 5\n");
+        printf("Contraseña:");
+        scanf(" %s", Contrasenau);
+
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s's" , Contrasenau, name, apellido1, pss);
         mysql_query(conU,sql_statement);
         break;
     }
