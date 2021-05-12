@@ -106,7 +106,7 @@ void ModificarUsuario(MYSQL *conU){
         break;
 
         case 6:
-        printf("Escogiste la opcion 5\n");
+        printf("Escogiste la opcion 6\n");
         printf("Contraseña:");
         scanf(" %s", Contrasenau);
 
