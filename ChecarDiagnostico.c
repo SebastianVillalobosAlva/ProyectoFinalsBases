@@ -25,7 +25,7 @@ void ChecarDiagnostico(MYSQL *conU){
 
     printf("\nEntro a ChecarDiagnostico\n");
 
-    mysql_query(conU,"SELECT IDdiagnostico, diagnostico  FROM PF_diags");
+    mysql_query(conU,"SELECT IDenfermedad, enfermedad FROM PF_enfermedad");
     resUser = mysql_store_result(conU);
 
     while(rowUser = mysql_fetch_row(resUser)){
@@ -44,10 +44,10 @@ void ChecarDiagnostico(MYSQL *conU){
     mysql_free_result(resUser);
 
     printf("Por favor ingresa el numero diagnostico que quieres buscar\n");
-    printf(" ID diagnostico: ");
+    printf(" ID enfermedad: ");
     scanf("%i", &opcion);
 
-    sprintf(sql_statement, "SELECT  Nombreu, ApellidoPatu, ApellidoMatu FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE IDdiagnostico = '%i'", opcion);
+    sprintf(sql_statement, "SELECT  Nombreu, ApellidoPatu, ApellidoMatu FROM PF_consultas LEFT JOIN PF_usuarios USING (IDusuario) WHERE IDenfermedad = '%i'", opcion);
 
     mysql_query(conU,sql_statement);
     resUser2 = mysql_store_result(conU);
