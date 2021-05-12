@@ -110,7 +110,7 @@ void ModificarUsuario(MYSQL *conU){
         printf("Contraseña:");
         scanf(" %s", Contrasenau);
 
-        sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s's" , Contrasenau, name, apellido1, pss);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND ApellidoMatu = '%s' AND Contrasenau = '%s'" , Contrasenau, name, apellido1, pss);
         mysql_query(conU,sql_statement);
         break;
     }
