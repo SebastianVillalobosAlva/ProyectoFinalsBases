@@ -33,7 +33,7 @@ void HistorialClinico(MYSQL *conU){
     printf(" Email: ");
     scanf("%s", Email);
 
-    sprintf(sql_statement, "SELECT descripcionc FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND Email='%s'", Nombre, ApellidoPat, Email);
+    sprintf(sql_statement, "SELECT descripcionc, fechacons FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND Email='%s'", Nombre, ApellidoPat, Email);
 
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);
