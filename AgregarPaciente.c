@@ -29,7 +29,7 @@ void AgregarPaciente(MYSQL *conU){
     scanf("%s", ApellidoMat);
     printf("Fecha de Nacimiento (2020-01-01):");
     scanf("%s", FechaNac);
-    printf("Emailu:");
+    printf("Email:");
     scanf("%s", Email);
 
     sprintf(sql_statement, "INSERT INTO PF_pacientes (Nombre, ApellidoPat, ApellidoMat, FechaNac, Email) VALUES('%s','%s','%s','%s','%s')", Nombre, ApellidoPat, ApellidoMat, FechaNac, Email);

@@ -35,7 +35,7 @@ void AgregarUsuario(MYSQL *conU){
     scanf("%s", Puesto);
     printf("Fecha de Nacimiento (2020-01-01):");
     scanf("%s", FechaNacu);
-    printf("Emailu:");
+    printf("Email:");
     scanf("%s", Emailu);
     printf("Contaseña:");
     scanf("%s", Contrasenau);

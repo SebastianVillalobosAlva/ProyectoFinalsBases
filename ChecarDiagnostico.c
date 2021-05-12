@@ -48,7 +48,6 @@ void ChecarDiagnostico(MYSQL *conU){
     scanf("%i", &opcion);
 
     sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE IDenfermedad = '%i' GROUP BY IDpaciente", opcion);
-
     mysql_query(conU,sql_statement);
     resUser2 = mysql_store_result(conU);
 

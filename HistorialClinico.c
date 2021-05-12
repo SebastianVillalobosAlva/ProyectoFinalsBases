@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 void HistorialClinico(MYSQL *conU){
-    char enter[5], sql_statement[2048], Nombre[40], ApellidoPat[40];
+    char enter[5], sql_statement[2048], Nombre[40], ApellidoPat[40], Email[40];
     unsigned int i;
     int opcion = 0;
     MYSQL_RES *resUser;
@@ -30,8 +30,10 @@ void HistorialClinico(MYSQL *conU){
     scanf("%s", Nombre);
     printf(" Apellido Paterno: ");
     scanf("%s", ApellidoPat);
+    printf(" Email: ");
+    scanf("%s", Email)
 
-    sprintf(sql_statement, "SELECT * FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE Nombre = '%s' AND ApellidoPat = '%s'", Nombre, ApellidoPat);
+    sprintf(sql_statement, "SELECT descripcionc FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND Email='%s'", Nombre, ApellidoPat, Email);
 
     mysql_query(conU,sql_statement);
     resUser = mysql_store_result(conU);

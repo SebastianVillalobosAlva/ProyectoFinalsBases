@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 void ModificarPropioUsuario(MYSQL *conU, char *name, char *pss){
-    char enter[5], sql_statement[2048], Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
+    char enter[5], sql_statement[2048], Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30], Contrasenau[30];
     int opcion, id;
 
     printf("\nEntro a Modificar Usuario\n");
@@ -28,6 +28,7 @@ void ModificarPropioUsuario(MYSQL *conU, char *name, char *pss){
     printf("3) Apellido Materno\n");
     printf("4) Fecha Nacimiento\n");
     printf("5) Email\n");
+    printf("6) Contraseña\n");
     printf(" Dato a cambiar: ");
     scanf("%i", &opcion);
 
@@ -69,6 +70,14 @@ void ModificarPropioUsuario(MYSQL *conU, char *name, char *pss){
         printf("Email:");
         scanf(" %s", Email);
         sprintf(sql_statement, "UPDATE PF_usuarios SET Emailu = '%s'  WHERE Nombreu = '%s' AND Contrasenau = '%s'" , Email, name, pss);
+        mysql_query(conU,sql_statement);
+        break;
+
+        case 6:
+        printf("Escogiste la opcion 1\n");
+        printf("Contraseña:");
+        scanf(" %s", Contrasenau);
+        sprintf(sql_statement, "UPDATE PF_usuarios SET Contrasenau = '%s' WHERE Nombreu = '%s' AND Contrasenau = '%s'", Contrasenau, name, pss);
         mysql_query(conU,sql_statement);
         break;
     }
