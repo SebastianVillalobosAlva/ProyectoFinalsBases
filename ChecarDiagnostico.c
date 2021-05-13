@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 void ChecarDiagnostico(MYSQL *conU){
-    char enter[5], sql_statement[4056];
+    char enter[5], sql_query[4056];
     int opcion = 0;
     unsigned int i;
     MYSQL_RES *resUser, *resUser2;
@@ -47,8 +47,8 @@ void ChecarDiagnostico(MYSQL *conU){
     printf(" ID enfermedad: ");
     scanf("%i", &opcion);
 
-    sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE IDenfermedad = '%i' GROUP BY IDpaciente", opcion);
-    mysql_query(conU,sql_statement);
+    sprintf(sql_query,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE IDenfermedad = '%i' GROUP BY IDpaciente", opcion);
+    mysql_query(conU,sql_query);
     resUser2 = mysql_store_result(conU);
 
     while(rowUser2 = mysql_fetch_row(resUser2)){

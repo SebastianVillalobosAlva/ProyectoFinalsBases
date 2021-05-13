@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
-    char Nombre[25], email[30], descripcion[100], sql_statement[10000], enter[5];
+    char Nombre[25], email[30], descripcion[100], sql_query[10000], enter[5];
     int IDpaciente, IDusuario, IDmedicina, IDenfermedad, costo;
     unsigned int i;
     printf("\nIngresa el nombre del paciente: ");
@@ -17,8 +17,8 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
 
     /* Obtener ID del paciente */
     //jasamelu@gmail.com
-    sprintf(sql_statement,"SELECT IDpaciente FROM PF_pacientes WHERE Nombre = '%s' AND Email = '%s'", Nombre, email);
-    mysql_query(conU,sql_statement);
+    sprintf(sql_query,"SELECT IDpaciente FROM PF_pacientes WHERE Nombre = '%s' AND Email = '%s'", Nombre, email);
+    mysql_query(conU,sql_query);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDpaciente = atoi(rowUser[0]);
@@ -26,8 +26,8 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     mysql_free_result(resUser);
 
     /* Obtener ID del usuario */
-    sprintf(sql_statement,"SELECT IDusuario FROM PF_usuarios WHERE Nombreu = '%s' AND Contrasenau = '%s'", name, pss);
-    mysql_query(conU,sql_statement);
+    sprintf(sql_query,"SELECT IDusuario FROM PF_usuarios WHERE Nombreu = '%s' AND Contrasenau = '%s'", name, pss);
+    mysql_query(conU,sql_query);
     resUser = mysql_store_result(conU);
     rowUser = mysql_fetch_row(resUser);
     IDusuario = atoi(rowUser[0]);
@@ -87,8 +87,8 @@ void RegistrarConsulta(MYSQL *conU, char *name, char *pss){
     scanf("%i", &costo);
     // costo = atof(costo);
 
-    sprintf(sql_statement,"INSERT INTO PF_consultas (descripcionc, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad) VALUES ('%s','%i','%i','%i','%i','%i')", descripcion, costo,IDpaciente, IDusuario, IDmedicina, IDenfermedad);
-    mysql_query(conU,sql_statement);
+    sprintf(sql_query,"INSERT INTO PF_consultas (descripcionc, costo, IDpaciente, IDusuario, IDmedicina, IDenfermedad) VALUES ('%s','%i','%i','%i','%i','%i')", descripcion, costo,IDpaciente, IDusuario, IDmedicina, IDenfermedad);
+    mysql_query(conU,sql_query);
 
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);

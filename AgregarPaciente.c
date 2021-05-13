@@ -18,7 +18,7 @@
 
 void AgregarPaciente(MYSQL *conU){
     char Nombre[40], ApellidoPat[40], ApellidoMat[40], FechaNac[40], Email[40];
-    char sql_statement[2048], enter[10];
+    char sql_query[2048], enter[10];
 
     printf("\nPor favor llena la informacion del usuario que quiere agregar:\n");
     printf("Nombre:");
@@ -32,8 +32,8 @@ void AgregarPaciente(MYSQL *conU){
     printf("Email:");
     scanf("%s", Email);
 
-    sprintf(sql_statement, "INSERT INTO PF_pacientes (Nombre, ApellidoPat, ApellidoMat, FechaNac, Email) VALUES('%s','%s','%s','%s','%s')", Nombre, ApellidoPat, ApellidoMat, FechaNac, Email);
-    mysql_query(conU,sql_statement);
+    sprintf(sql_query, "INSERT INTO PF_pacientes (Nombre, ApellidoPat, ApellidoMat, FechaNac, Email) VALUES('%s','%s','%s','%s','%s')", Nombre, ApellidoPat, ApellidoMat, FechaNac, Email);
+    mysql_query(conU,sql_query);
     printf("\nSelecciona una tecla y aprieta enter\n");
     scanf(" %s", enter);
 }

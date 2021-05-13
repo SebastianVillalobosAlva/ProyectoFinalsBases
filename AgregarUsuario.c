@@ -21,7 +21,7 @@ void AgregarUsuario(MYSQL *conU){
     char Nombreu[40], ApellidoPatu[40], ApellidoMatu[40], Puesto[40], FechaNacu[40], Emailu[40], Contrasenau[40];
     
     /* Declaramos la variables donde vamos a guardar los queries */
-    char sql_statement[2048], enter[10];
+    char sql_query[2048], enter[10];
 
     /* Leemos las variables del nuevo usuario */
     printf("\nPor favor llena la informacion del usuario que quiere agregar:\n");
@@ -41,8 +41,8 @@ void AgregarUsuario(MYSQL *conU){
     scanf("%s", Contrasenau);
 
     /* Insertamos los valores del nuevo usuario al query */
-    sprintf(sql_statement, "INSERT INTO PF_usuarios (Nombreu, ApellidoPatu, ApellidoMatu, puesto, FechaNacu, Emailu, Contrasenau) VALUES('%s','%s','%s','%s','%s','%s','%s')", Nombreu, ApellidoPatu, ApellidoMatu, Puesto, FechaNacu, Emailu, Contrasenau );
-    mysql_query(conU,sql_statement);
+    sprintf(sql_query, "INSERT INTO PF_usuarios (Nombreu, ApellidoPatu, ApellidoMatu, puesto, FechaNacu, Emailu, Contrasenau) VALUES('%s','%s','%s','%s','%s','%s','%s')", Nombreu, ApellidoPatu, ApellidoMatu, Puesto, FechaNacu, Emailu, Contrasenau );
+    mysql_query(conU,sql_query);
     return;
     // printf("\nSelecciona una tecla y aprieta enter\n");
     // scanf(" %s", enter);

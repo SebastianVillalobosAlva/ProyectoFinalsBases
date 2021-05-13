@@ -26,15 +26,15 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     system("clear");
 
     /* Variables de MYSQL y queries */
-    char sql_statement[100],sql_statement_u[100], enter[5];
+    char sql_query[100],sql_query_u[100], enter[5];
     MYSQL_RES *resAdmin, *resUser;
     MYSQL_ROW rowAdmin, rowUser;
 
     /* Concatenamos el nombre y contraseña a nuestro query de administrador */
-    sprintf(sql_statement,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", name, pss);
+    sprintf(sql_query,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", name, pss);
 
     /* Realizamos el query y obtenemos el resultado */
-    mysql_query(conn,sql_statement);
+    mysql_query(conn,sql_query);
     resAdmin = mysql_store_result(conn);
     rowAdmin = mysql_fetch_row(resAdmin);
 
@@ -48,10 +48,10 @@ void Iniciar(MYSQL *conn, char *name, char *pss){
     /* Si no existe el registro de administrador checamos si existe el registro de usuario */
     else{
         /* Concatenamos el nombre y contraseña a nuestro query de usuario */
-        sprintf(sql_statement_u,"SELECT * FROM PF_usuarios WHERE Nombreu='%s' AND Contrasenau='%s'", name, pss);
+        sprintf(sql_query_u,"SELECT * FROM PF_usuarios WHERE Nombreu='%s' AND Contrasenau='%s'", name, pss);
         
         /* Realizamos el query y obtenemos el resultado */
-        mysql_query(conn,sql_statement_u);
+        mysql_query(conn,sql_query_u);
         resUser = mysql_store_result(conn);
         rowUser = mysql_fetch_row(resUser);
         

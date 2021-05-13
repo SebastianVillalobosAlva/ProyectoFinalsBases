@@ -20,7 +20,7 @@
 
 void BuscarUsuario(MYSQL *conU, char *name){
     /* Declaramos la variables para buscar al usuario y donde vamos a guardar el query */
-    char enter[5], sql_statement[2048], sql_statement_2[2048], sql_statement_3[5000];
+    char enter[5], sql_query[2048], sql_query_2[2048], sql_query_3[5000];
     char Nombre[40], ApellidoPat[40];
 
     /* Declaramos la variable del contador y opcion */
@@ -49,8 +49,8 @@ void BuscarUsuario(MYSQL *conU, char *name){
         scanf("%s", Nombre);
 
         /* Llenamos el query con el nombre */
-        sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s'", Nombre);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s'", Nombre);
+        mysql_query(conU,sql_query);
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */
@@ -67,9 +67,9 @@ void BuscarUsuario(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al usuario con el nombre %s", Nombre);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al usuario con el nombre %s", Nombre);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
 
         case 2:
@@ -78,8 +78,8 @@ void BuscarUsuario(MYSQL *conU, char *name){
         scanf("%s", ApellidoPat);
 
         /* Llenamos el query con el apellido paterno */
-        sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE ApellidoPatu = '%s'", ApellidoPat);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE ApellidoPatu = '%s'", ApellidoPat);
+        mysql_query(conU,sql_query);
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */
@@ -96,9 +96,9 @@ void BuscarUsuario(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al usuario con el apellido %s", ApellidoPat);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al usuario con el apellido %s", ApellidoPat);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
 
         case 3:
@@ -109,8 +109,8 @@ void BuscarUsuario(MYSQL *conU, char *name){
         scanf("%s", ApellidoPat);
 
         /* Llenamos el query con el nombre y apellido paterno */
-        sprintf(sql_statement,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s' AND ApellidoPatu='%s'", Nombre, ApellidoPat);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombreu, ApellidoPatu, ApellidoMatu FROM PF_usuarios WHERE Nombreu = '%s' AND ApellidoPatu='%s'", Nombre, ApellidoPat);
+        mysql_query(conU,sql_query);
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */
@@ -127,9 +127,9 @@ void BuscarUsuario(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al usuario con el nombre %s y el apellido %s", Nombre, ApellidoPat);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al usuario con el nombre %s y el apellido %s", Nombre, ApellidoPat);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
     }
     /* Liberamos el resultado */

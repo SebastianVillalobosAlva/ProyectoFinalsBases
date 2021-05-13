@@ -19,7 +19,7 @@
 void Analisis(MYSQL *conU){
     unsigned int i;
     int opcion;
-    char enter[5], Nombre[40], ApellidoPat[40], ApellidoMat[40], sql_statement[2048];
+    char enter[5], Nombre[40], ApellidoPat[40], ApellidoMat[40], sql_query[2048];
 
     MYSQL_RES *resUser;
     MYSQL_ROW rowUser;
@@ -81,8 +81,8 @@ void Analisis(MYSQL *conU){
         printf("Apellido Materno: ");
         scanf("%s", ApellidoMat);
 
-        sprintf(sql_statement,"SELECT Vacunas,Fechava FROM PF_pacientes LEFT JOIN PF_pava USING(IDpaciente) LEFT JOIN PF_vacunas USING(IDvacunas) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND ApellidoMat = '%s'", Nombre, ApellidoPat, ApellidoMat);
-        mysql_query(conU, sql_statement);
+        sprintf(sql_query,"SELECT Vacunas,Fechava FROM PF_pacientes LEFT JOIN PF_pava USING(IDpaciente) LEFT JOIN PF_vacunas USING(IDvacunas) WHERE Nombre = '%s' AND ApellidoPat = '%s' AND ApellidoMat = '%s'", Nombre, ApellidoPat, ApellidoMat);
+        mysql_query(conU, sql_query);
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */

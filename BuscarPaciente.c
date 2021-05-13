@@ -19,7 +19,7 @@
 #include <stdlib.h>
 
 void BuscarPaciente(MYSQL *conU, char *name){
-    char enter[5], sql_statement[4056], sql_statement_2[4056], sql_statement_3[5000];
+    char enter[5], sql_query[4056], sql_query_2[4056], sql_query_3[5000];
     char FechaNac[40], ApellidoPat[40], ApellidoMat[40], FechaConI[40], FechaConF[40], enfermedad[40];
     unsigned int i;
     int opcion = 0;
@@ -40,8 +40,8 @@ void BuscarPaciente(MYSQL *conU, char *name){
         case 1:
         printf(" FechaNac (2020-01-01): ");
         scanf("%s", FechaNac);
-        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat, FechaNac FROM PF_pacientes WHERE FechaNac = '%s'", FechaNac);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombre, ApellidoPat, ApellidoMat, FechaNac FROM PF_pacientes WHERE FechaNac = '%s'", FechaNac);
+        mysql_query(conU,sql_query);
         resPac = mysql_store_result(conU);
 
         while(rowPac = mysql_fetch_row(resPac)){
@@ -57,16 +57,16 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al paciente con fecha de nacimiento %s", FechaNac);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al paciente con fecha de nacimiento %s", FechaNac);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
 
         case 2:
         printf(" Apellido Paterno: ");
         scanf("%s", ApellidoPat);
-        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat, FechaNac FROM PF_pacientes WHERE ApellidoPat = '%s'", ApellidoPat);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombre, ApellidoPat, ApellidoMat, FechaNac FROM PF_pacientes WHERE ApellidoPat = '%s'", ApellidoPat);
+        mysql_query(conU,sql_query);
         resPac = mysql_store_result(conU);
 
         while(rowPac = mysql_fetch_row(resPac)){
@@ -82,16 +82,16 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al paciente con el apellido paterno %s", ApellidoPat);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al paciente con el apellido paterno %s", ApellidoPat);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
 
         case 3:
         printf(" Apellido Materno: ");
         scanf("%s", ApellidoMat);
-        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat, FechaNac FROM PF_pacientes WHERE ApellidoMat = '%s'", ApellidoMat);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombre, ApellidoPat, ApellidoMat, FechaNac FROM PF_pacientes WHERE ApellidoMat = '%s'", ApellidoMat);
+        mysql_query(conU,sql_query);
         resPac = mysql_store_result(conU);
 
         while(rowPac = mysql_fetch_row(resPac)){
@@ -107,9 +107,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al paciente con el apellido materno %s", ApellidoMat);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al paciente con el apellido materno %s", ApellidoMat);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
 
         case 4:
@@ -117,8 +117,8 @@ void BuscarPaciente(MYSQL *conU, char *name){
         scanf("%s", FechaConI);
         printf(" Fecha final de consulta: ");
         scanf("%s", FechaConF);
-        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat, fechacons FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE fechacons BETWEEN '%s' AND '%s'", FechaConI, FechaConF);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombre, ApellidoPat, ApellidoMat, fechacons FROM PF_consultas LEFT JOIN PF_pacientes USING (IDpaciente) WHERE fechacons BETWEEN '%s' AND '%s'", FechaConI, FechaConF);
+        mysql_query(conU,sql_query);
         resPac = mysql_store_result(conU);
 
         while(rowPac = mysql_fetch_row(resPac)){
@@ -134,9 +134,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco al paciente con fecha inicial %s y fecha final %s de consulta", FechaConI, FechaConF);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco al paciente con fecha inicial %s y fecha final %s de consulta", FechaConI, FechaConF);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
 
         case 5:
@@ -160,8 +160,8 @@ void BuscarPaciente(MYSQL *conU, char *name){
         mysql_free_result(resPac);
         printf("\nEnfermedad: \n");
         scanf("%s", enfermedad);
-        sprintf(sql_statement,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s' GROUP BY IDpaciente", enfermedad);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query,"SELECT Nombre, ApellidoPat, ApellidoMat FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) LEFT JOIN PF_enfermedad USING(IDenfermedad) WHERE enfermedad = '%s' GROUP BY IDpaciente", enfermedad);
+        mysql_query(conU,sql_query);
         resPac = mysql_store_result(conU);
 
         while(rowPac = mysql_fetch_row(resPac)){
@@ -177,9 +177,9 @@ void BuscarPaciente(MYSQL *conU, char *name){
             }
             printf("\n");
         }
-        sprintf(sql_statement_2, "Se busco a los pacientes con la enfermedad '%s'", enfermedad);
-        sprintf(sql_statement_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_statement_2, name);
-        mysql_query(conU,sql_statement_3);
+        sprintf(sql_query_2, "Se busco a los pacientes con la enfermedad '%s'", enfermedad);
+        sprintf(sql_query_3, "INSERT INTO PF_registrobus (registro, NombreU) VALUES ('%s', '%s')", sql_query_2, name);
+        mysql_query(conU,sql_query_3);
         break;
     }
     mysql_free_result(resPac);

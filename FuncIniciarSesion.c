@@ -28,7 +28,7 @@ void IniciarSesion(int intentos){
     char nombre[25];
     char psswrd[30];
 
-    char sql_statement[100],sql_statement_u[100], enter[5];
+    char sql_query[100],sql_query_u[100], enter[5];
     MYSQL_RES *resAdmin, *resUser;
     MYSQL_ROW rowAdmin, rowUser;
 
@@ -62,8 +62,8 @@ void IniciarSesion(int intentos){
     printf("The connection is open\n");
 
     if (intentos < 3){
-        sprintf(sql_statement,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", nombre, psswrd);
-        mysql_query(con,sql_statement);
+        sprintf(sql_query,"SELECT * FROM PF_admins WHERE Nombrea='%s' AND Contrasenaa='%s'", nombre, psswrd);
+        mysql_query(con,sql_query);
         resAdmin = mysql_store_result(con);
         rowAdmin = mysql_fetch_row(resAdmin);
 
@@ -74,10 +74,10 @@ void IniciarSesion(int intentos){
         /* Si no existe el registro de administrador checamos si existe el registro de usuario */
         else{
             /* Concatenamos el nombre y contraseña a nuestro query de usuario */
-            sprintf(sql_statement_u,"SELECT * FROM PF_usuarios WHERE Nombreu='%s' AND Contrasenau='%s'", nombre, psswrd);
+            sprintf(sql_query_u,"SELECT * FROM PF_usuarios WHERE Nombreu='%s' AND Contrasenau='%s'", nombre, psswrd);
             
             /* Realizamos el query y obtenemos el resultado */
-            mysql_query(con,sql_statement_u);
+            mysql_query(con,sql_query_u);
             resUser = mysql_store_result(con);
             rowUser = mysql_fetch_row(resUser);
             

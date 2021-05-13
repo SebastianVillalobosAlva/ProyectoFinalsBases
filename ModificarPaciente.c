@@ -19,7 +19,7 @@
 
 void ModificarPaciente(MYSQL *conU){
     /* Declaramos la variables para agregar al usuario */
-    char enter[5], sql_statement[5000], sql_statement2[5000]; 
+    char enter[5], sql_query[5000], sql_query2[5000]; 
     char Nombre[25], ApellidoPat[25], ApellidoMat[25], FechaNac[25], Email[30];
     char name[40], apellido1[40], email[40];
     
@@ -53,8 +53,8 @@ void ModificarPaciente(MYSQL *conU){
         scanf(" %s", Nombre);
 
         /* Llenamos el query con el nombre y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_pacientes SET Nombre = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'", Nombre, name, apellido1, email);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query, "UPDATE PF_pacientes SET Nombre = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'", Nombre, name, apellido1, email);
+        mysql_query(conU,sql_query);
         break;
 
         case 2:
@@ -65,8 +65,8 @@ void ModificarPaciente(MYSQL *conU){
         scanf(" %s", ApellidoPat);
 
         /* Llenamos el query con el apellido paterno y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_pacientes SET ApellidoPat = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , ApellidoPat, name, apellido1, email);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query, "UPDATE PF_pacientes SET ApellidoPat = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , ApellidoPat, name, apellido1, email);
+        mysql_query(conU,sql_query);
         break;
 
         case 3:
@@ -77,8 +77,8 @@ void ModificarPaciente(MYSQL *conU){
         scanf(" %s", ApellidoMat);
 
         /* Llenamos el query con el apellido materno y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_pacientes SET ApellidoMat = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , ApellidoMat, name, apellido1, email);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query, "UPDATE PF_pacientes SET ApellidoMat = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , ApellidoMat, name, apellido1, email);
+        mysql_query(conU,sql_query);
         break;
 
         case 4:
@@ -89,8 +89,8 @@ void ModificarPaciente(MYSQL *conU){
         scanf(" %s", FechaNac);
 
         /* Llenamos el query con la fecha de nacimiento y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_pacientes SET FechaNac = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , FechaNac, name, apellido1, email);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query, "UPDATE PF_pacientes SET FechaNac = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , FechaNac, name, apellido1, email);
+        mysql_query(conU,sql_query);
         break;
 
         case 5:
@@ -100,8 +100,8 @@ void ModificarPaciente(MYSQL *conU){
         scanf(" %s", Email);
 
         /* Llenamos el query con el email y lo ejecutamos */
-        sprintf(sql_statement, "UPDATE PF_pacientes SET Email = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , Email, name, apellido1, email);
-        mysql_query(conU,sql_statement);
+        sprintf(sql_query, "UPDATE PF_pacientes SET Email = '%s' WHERE Nombre = '%s' AND ApellidoMat = '%s' AND Email = '%s'" , Email, name, apellido1, email);
+        mysql_query(conU,sql_query);
         break;
     }
     
