@@ -82,6 +82,7 @@ void ModificarPropioUsuario(MYSQL *conU, char *name, char *pss){
         break;
     }
     
-    printf("\nSelecciona una tecla y aprieta enter\n");
+    printf("\nSelecciona una tecla y aprieta enter. El programa tiene que reiniciarse para que los cambios tomen efecto\n");
     scanf(" %s", enter);
+    exit(0);
 }
