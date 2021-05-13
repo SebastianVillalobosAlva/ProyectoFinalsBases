@@ -118,6 +118,7 @@ void ModificarUsuario(MYSQL *conU){
     }
     
     /* Necesitamos apretar una tecla para continuar */
-    printf("\nSelecciona una tecla y aprieta enter\n");
+    printf("\nSelecciona una tecla y aprieta enter. El programa tiene que reiniciarse para que se efectuen los cambios\n");
     scanf(" %s", enter);
+    exit(0);
 }
