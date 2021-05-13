@@ -54,7 +54,7 @@ void AnalisisAdmin(MYSQL *conU){
         break;
 
         case 2:
-        mysql_query(conU, "SELECT Nombre,ApellidoPat,ApellidoMat, COUNT(IDpaciente) FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) GROUP BY IDpaciente ORDER BY COUNT(IDpaciente) DESC LIMIT 1");
+        mysql_query(conU, "SELECT Nombre,ApellidoPat,ApellidoMat,COUNT(IDpaciente)FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) GROUP BY IDpaciente HAVING COUNT(IDpaciente)=(SELECT COUNT(IDpaciente) FROM PF_consultas LEFT JOIN PF_pacientes USING(IDpaciente) GROUP BY IDpaciente ORDER BY COUNT(IDpaciente) DESC LIMIT 1)");
         resUser = mysql_store_result(conU);
 
         /* Obtenemos el resultado */
